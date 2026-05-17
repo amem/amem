@@ -1,8 +1,8 @@
 - 👋 Hi, I’m @amem
 - 👀 I’m interested in Python, JS, XSLT, XML, Vue.js, React.js
-- 🌱 I’m currently learning Vue.js & Python Django
+- 🌱 I’m currently learning AI & Python
 - 💞️ I’m looking to collaborate on multiple projects
-- 📫 How to reach me : I.G : mo.amkaitir & LinkedIn : https://www.linkedin.com/in/mostapha-amkaitir-992a4795/
+- 📫 How to reach me : I.G : mo.amem94 & LinkedIn : https://www.linkedin.com/in/mostapha-amkaitir-992a4795/
 
 <!---
 amem/amem is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
