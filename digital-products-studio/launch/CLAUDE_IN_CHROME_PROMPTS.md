@@ -4,12 +4,8 @@ The Claude side panel in your Chrome (Claude in Chrome) can click and type in yo
 
 ## Before you start (5 minutes)
 
-1. Create a folder: `Downloads/amem-products`.
-2. Save into it the ZIP files attached earlier in this chat:
-   - `2027-Money-Planner.zip`, `Holiday-Budget-Gift-Tracker.zip`, `Debt-Payoff-Planner.zip`
-   - `neon-stack-v1.0.0.zip`, `neon-stack-web-v1.0.0.zip`, `invoice-studio-v1.0.0.zip`, `watermark-studio-v1.0.0.zip`, `py-automation-kit-v1.0.0.zip`
-   - `store-images.zip`: unzip it in the same folder.
-3. Stay at your computer: the panel will hand over to you for Google sign-in, terms, CAPTCHAs, verification and payout details.
+1. Download `amem-products-all.zip` (attached in the chat) and unzip it into your **Downloads** folder. You get `Downloads/amem-products/` with the 8 product ZIPs, `images/` and `planner/`. Don't unzip the product ZIPs inside it; they are uploaded as they are.
+2. Stay at your computer: the panel will hand over to you for Google sign-in, terms, CAPTCHAs, verification and payout details.
 
 ---
 
