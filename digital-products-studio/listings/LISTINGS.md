@@ -18,6 +18,7 @@ The publisher uses `catalog/catalog.json` and the description files in this fold
 - `thumb.jpg` (600×600) is the thumbnail
 - `etsy-0N.jpg` (2400×1800) are the Etsy photos
 - `itch-cover.jpg` (630×500) is the itch.io cover
+- `video-*.mp4` and `*.gif` are the demo videos and GIFs. The app demos last 12–13 s, within Etsy's 15-second limit, and each has a 9:16 cut for TikTok and Reels. See `../marketing/LAUNCH_POSTS.md` for which file goes where.
 
 ## Etsy titles and tags
 

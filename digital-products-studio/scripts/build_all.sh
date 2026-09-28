@@ -24,5 +24,10 @@ echo "== Packaging"
 echo "== Store images"
 node scripts/make_images.js
 
+if [ "${VIDEOS:-0}" = 1 ]; then # opt in: VIDEOS=1 ./scripts/build_all.sh (takes a few minutes, needs ffmpeg)
+  echo "== Demo videos"
+  node scripts/make_videos.js
+fi
+
 echo "== Publisher plan"
 "$PY" publisher/publish.py plan

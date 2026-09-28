@@ -126,3 +126,20 @@ Then give me my public Gumroad store link, tell me about any banner asking me to
 ```
 
 Copy the table into your chat with Claude Code for a second review.
+
+---
+
+## Prompt 7: Add the demo videos and GIFs
+
+First, download `amem-promo-media.zip` (attached in the chat) and unzip it into your **Downloads** folder. It adds the videos and GIFs to `Downloads/amem-products/images/`. Then paste:
+
+```
+Help me add demo videos and GIFs to my existing listings in this browser. Don't publish, unpublish or delete anything, don't change prices or text, and don't message anyone. Ask me to upload each file from Downloads/amem-products/images. Stop and ask me for any verification, payment or terms step. Skip any site where I'm not signed in or where the listing doesn't exist yet.
+1. Etsy (Shop Manager → Listings): add the video invoice-studio/video-demo.mp4 to the Invoice Studio listing, and watermark-studio/video-demo.mp4 to the Watermark Studio listing. Save each listing, keeping its current state.
+2. Fiverr (Gigs): add invoice-studio/video-demo.mp4 as the gig video of the invoice app gig, and neon-stack/video-source-code.mp4 to the HTML5 game reskin gig. Save them, and keep drafts as drafts.
+3. itch.io (Dashboard): add neon-stack/gameplay.gif as the first screenshot of both Neon Stack projects, then save.
+4. Gumroad (Products): add a second cover to three products: invoice-studio/demo.gif on Invoice Studio, watermark-studio/demo.gif on Watermark Studio, and neon-stack/gameplay.gif on Neon Stack. If Gumroad refuses a GIF, skip it and tell me.
+Finally, show me a table: platform, listing, file added (yes/no), and any problem.
+```
+
+The posts that go with these videos (TikTok, Reels, Reddit, Product Hunt and more) are in [`../marketing/LAUNCH_POSTS.md`](../marketing/LAUNCH_POSTS.md). Post them yourself, from your own accounts.

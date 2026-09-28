@@ -25,11 +25,13 @@ digital-products-studio/
 │   ├── neon-stack/  invoice-studio/  watermark-studio/  py-automation-kit/
 ├── catalog/catalog.json                 every product × marketplace: titles, prices, tags, files, images
 ├── listings/                            descriptions (+ LISTINGS.md for manual listing)
-├── images/<product>/                    covers, thumbnails, Etsy photos, itch.io cover
+├── images/<product>/                    covers, thumbnails, Etsy photos, itch.io cover, demo videos and GIFs
+├── marketing/LAUNCH_POSTS.md            ready-to-post copy: TikTok/Reels, Reddit, Product Hunt, LinkedIn, X, Dev.to
 ├── publisher/                           automatic listing tool (Python standard library only) + 19 tests
 ├── scripts/build_all.sh                 run all tests → package ZIPs → store images → plan
 ├── scripts/package.py                   product ZIPs → dist/
 ├── scripts/make_images.js               store images from real screenshots
+├── scripts/make_videos.js               demo videos and GIFs recorded from the real products (demo-photos/: CC0 samples)
 └── launch/ACCOUNTS_AND_AUTOMATION.md    create accounts, get API keys, run the publisher
 ```
 
