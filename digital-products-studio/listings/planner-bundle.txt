@@ -1,0 +1,43 @@
+Take control of your money in 2027 with one simple spreadsheet that does all the math for you. Budget, bills, savings goals, debt payoff, net worth AND a holiday gift tracker. Works in Google Sheets (free) and Microsoft Excel.
+
+★ WHAT'S INSIDE (11 TABS)
+• Start Here: set your year and starting balance, links to every tab
+• Categories & Budget: up to 10 income and 30 expense categories + a 50/30/20 check
+• Transactions: log every income and expense (1,000 rows, drop-down categories)
+• Monthly Dashboard: pick a month and see budget vs. actual, left over, savings rate and 2 charts
+• Annual Overview: all 12 months side by side, totals, averages, variance, running balance
+• Bills Tracker: due dates, autopay and a Paid/Unpaid check for every month
+• Savings Goals: progress bars + how much to save each month to hit your date
+• Net Worth Tracker: assets vs. debts, charted across the year
+• Debt Payoff Planner: Snowball or Avalanche, payoff date for each debt, total interest, debt-free date
+• Debt Schedule: automatic month-by-month plan (up to 30 years)
+• BONUS Holiday Planner: gift list, budget per person, gift status, food/decor/travel costs
+
+★ WHY YOU'LL LOVE IT
+✓ Everything calculates automatically. Just type in the cream-colored cells
+✓ Over-budget categories turn red instantly
+✓ Works in ANY currency ($, €, £, and more)
+✓ Reusable every year. Change the year cell and start again
+✓ Start today: set the year to 2026 and use it right away
+✓ Includes a DEMO copy full of sample data so you can see exactly how it works
+✓ No subscription, no app, no bank login. Your data stays private
+
+★ WHAT YOU GET
+1 × planner spreadsheet (.xlsx), clean and ready to use
+1 × demo spreadsheet (.xlsx) with sample data
+1 × PDF quick-start guide (Google Sheets + Excel instructions, how each tab works)
+
+★ HOW IT WORKS
+1. Purchase and download the files instantly (Etsy → Purchases and reviews → Download files)
+2. Open in Excel, or upload to Google Drive → Open with Google Sheets
+3. Enter your categories and budget, then log your transactions. Done.
+
+★ PLEASE NOTE
+• This is a DIGITAL product. Nothing will be shipped.
+• You need Microsoft Excel (2010 or newer / Excel for the web) or a free Google account for Google Sheets.
+• Colors may vary slightly between devices.
+• For personal use only. Please do not share or resell.
+• This is a budgeting tool, not financial advice.
+• Questions? Message me any time. I'm happy to help you get set up.
+
+Designed with AI assistance, built and checked by AMEM Sheets.

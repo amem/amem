@@ -1,0 +1,9 @@
+# Paid product source code is NOT committed: this repository is public.
+# The zips are built locally by scripts/build_all.sh and delivered privately.
+products/
+dist/
+__pycache__/
+*.pyc
+node_modules/
+test-results/
+images/_shots/

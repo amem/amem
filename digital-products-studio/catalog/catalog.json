@@ -1,0 +1,437 @@
+{
+  "_comment": "Paths are relative to the digital-products-studio folder. Run `python publisher/publish.py plan` after editing.",
+  "root": "..",
+  "products": [
+    {
+      "id": "neon-stack",
+      "version": "1.0.0",
+      "title": "Neon Stack: HTML5 Game Source Code (One-Tap Tower Stacking)",
+      "summary": "Polished one-tap HTML5 game. Clean JavaScript, reskin in one file, portal-ready.",
+      "price_usd": 19,
+      "description_file": "listings/neon-stack.txt",
+      "tags": [
+        "html5 game",
+        "game source code",
+        "javascript",
+        "game template",
+        "web game",
+        "indie game",
+        "reskin"
+      ],
+      "files": [
+        "dist/neon-stack-v1.0.0.zip"
+      ],
+      "images": [
+        "images/neon-stack/cover.jpg",
+        "images/neon-stack/gallery-1.jpg"
+      ],
+      "etsy": {
+        "enabled": false
+      },
+      "gumroad": {
+        "enabled": true,
+        "custom_permalink": "neon-stack",
+        "thumbnail": "images/neon-stack/thumb.jpg"
+      },
+      "polar": {
+        "enabled": true,
+        "benefit_description": "Neon Stack source code (ZIP)"
+      },
+      "itch": {
+        "enabled": true,
+        "page_url": "https://YOUR_ITCH_USERNAME.itch.io/neon-stack",
+        "builds": [
+          {
+            "path": "dist/neon-stack-web-v1.0.0.zip",
+            "target": "YOUR_ITCH_USERNAME/neon-stack:html5"
+          },
+          {
+            "path": "dist/neon-stack-v1.0.0.zip",
+            "target": "YOUR_ITCH_USERNAME/neon-stack-source-code:source"
+          }
+        ]
+      }
+    },
+    {
+      "id": "invoice-studio",
+      "version": "1.0.0",
+      "title": "Invoice Studio: Offline Invoice & Quote Generator",
+      "summary": "Professional invoices and quotes in your browser. PDF in one click, no subscription, data stays on your device.",
+      "price_usd": 19,
+      "description_file": "listings/invoice-studio.txt",
+      "tags": [
+        "invoice",
+        "invoice template",
+        "freelancer",
+        "small business",
+        "quote",
+        "pdf invoice",
+        "offline app"
+      ],
+      "files": [
+        "dist/invoice-studio-v1.0.0.zip"
+      ],
+      "images": [
+        "images/invoice-studio/cover.jpg"
+      ],
+      "etsy": {
+        "enabled": true,
+        "price": 12.99,
+        "taxonomy_id": null,
+        "title": "Invoice Generator App, Offline Invoice & Quote Maker, PDF Invoice Template for Small Business & Freelancers, Instant Download",
+        "tags": [
+          "invoice template",
+          "invoice generator",
+          "invoice maker",
+          "quote template",
+          "small business",
+          "freelancer invoice",
+          "billing template",
+          "pdf invoice",
+          "business invoice",
+          "estimate template",
+          "client invoice",
+          "bookkeeping",
+          "invoice app"
+        ],
+        "materials": [
+          "HTML",
+          "JavaScript",
+          "PDF guide"
+        ],
+        "images": [
+          "images/invoice-studio/etsy-01.jpg",
+          "images/invoice-studio/etsy-02.jpg",
+          "images/invoice-studio/etsy-03.jpg"
+        ]
+      },
+      "gumroad": {
+        "enabled": true,
+        "custom_permalink": "invoice-studio",
+        "thumbnail": "images/invoice-studio/thumb.jpg"
+      },
+      "polar": {
+        "enabled": true,
+        "benefit_description": "Invoice Studio app (ZIP)"
+      },
+      "itch": {
+        "enabled": false
+      }
+    },
+    {
+      "id": "watermark-studio",
+      "version": "1.0.0",
+      "title": "Watermark Studio: Batch Watermark, Resize & Rename Photos",
+      "summary": "Watermark hundreds of photos at once in your browser. Text or logo, tiled anti-theft mode. Nothing is uploaded.",
+      "price_usd": 12,
+      "description_file": "listings/watermark-studio.txt",
+      "tags": [
+        "watermark",
+        "photo tool",
+        "etsy seller",
+        "photography",
+        "batch resize",
+        "privacy"
+      ],
+      "files": [
+        "dist/watermark-studio-v1.0.0.zip"
+      ],
+      "images": [
+        "images/watermark-studio/cover.jpg"
+      ],
+      "etsy": {
+        "enabled": true,
+        "price": 9.99,
+        "taxonomy_id": null,
+        "title": "Batch Watermark Tool for Photos, Add Logo or Text Watermark, Resize & Rename Images, Etsy Seller Photo Tool, Works Offline",
+        "tags": [
+          "watermark",
+          "photo watermark",
+          "logo watermark",
+          "watermark tool",
+          "etsy seller tools",
+          "product photos",
+          "image resizer",
+          "photographer tool",
+          "batch watermark",
+          "copyright photos",
+          "shop photos",
+          "photo editing",
+          "bulk rename"
+        ],
+        "materials": [
+          "HTML",
+          "JavaScript"
+        ],
+        "images": [
+          "images/watermark-studio/etsy-01.jpg",
+          "images/watermark-studio/etsy-02.jpg",
+          "images/watermark-studio/etsy-03.jpg"
+        ]
+      },
+      "gumroad": {
+        "enabled": true,
+        "custom_permalink": "watermark-studio",
+        "thumbnail": "images/watermark-studio/thumb.jpg"
+      },
+      "polar": {
+        "enabled": true,
+        "benefit_description": "Watermark Studio tool (ZIP)"
+      },
+      "itch": {
+        "enabled": false
+      }
+    },
+    {
+      "id": "py-automation-kit",
+      "version": "1.0.0",
+      "title": "Python Automation Kit: 11 Time-Saving Scripts",
+      "summary": "Organize files, bulk rename, find duplicates, batch images, PDFs, Excel reports, backups, site monitor, mail merge.",
+      "price_usd": 15,
+      "description_file": "listings/py-automation-kit.txt",
+      "tags": [
+        "python",
+        "automation",
+        "python scripts",
+        "productivity",
+        "excel",
+        "pdf tools",
+        "file organizer"
+      ],
+      "files": [
+        "dist/py-automation-kit-v1.0.0.zip"
+      ],
+      "images": [
+        "images/py-automation-kit/cover.jpg"
+      ],
+      "etsy": {
+        "enabled": false
+      },
+      "gumroad": {
+        "enabled": true,
+        "custom_permalink": "python-automation-kit",
+        "thumbnail": "images/py-automation-kit/thumb.jpg"
+      },
+      "polar": {
+        "enabled": true,
+        "benefit_description": "Python Automation Kit (ZIP)"
+      },
+      "itch": {
+        "enabled": false
+      }
+    },
+    {
+      "id": "planner-bundle",
+      "version": "1.0.0",
+      "title": "2027 Money Planner: Budget Spreadsheet + Holiday Gift Tracker",
+      "summary": "Budget, bills, savings, debt payoff, net worth + holiday gift tracker. Excel & Google Sheets.",
+      "price_usd": 12.99,
+      "description_file": "listings/planner-bundle.txt",
+      "tags": [
+        "budget planner",
+        "spreadsheet",
+        "google sheets",
+        "excel template",
+        "personal finance"
+      ],
+      "files": [
+        "../2027-money-planner/product/dist/2027-Money-Planner.zip"
+      ],
+      "images": [
+        "../2027-money-planner/images/listing/etsy-bundle-01-hero.jpg",
+        "../2027-money-planner/images/listing/etsy-bundle-02-whats-inside.jpg",
+        "../2027-money-planner/images/listing/etsy-bundle-03-monthly-dashboard.jpg",
+        "../2027-money-planner/images/listing/etsy-bundle-04-annual-overview.jpg",
+        "../2027-money-planner/images/listing/etsy-bundle-05-debt-payoff.jpg",
+        "../2027-money-planner/images/listing/etsy-bundle-06-holiday-tracker.jpg",
+        "../2027-money-planner/images/listing/etsy-bundle-07-savings-networth.jpg",
+        "../2027-money-planner/images/listing/etsy-bundle-08-bills-transactions.jpg",
+        "../2027-money-planner/images/listing/etsy-common-09-how-it-works.jpg"
+      ],
+      "etsy": {
+        "enabled": true,
+        "price": 12.99,
+        "taxonomy_id": null,
+        "title": "2027 Budget Planner Spreadsheet, Google Sheets & Excel Budget Template, Monthly Budget, Debt Snowball, Savings & Bill Tracker, Gift Tracker",
+        "tags": [
+          "budget spreadsheet",
+          "budget planner 2027",
+          "google sheets budget",
+          "excel budget",
+          "monthly budget",
+          "debt snowball",
+          "budget template",
+          "savings tracker",
+          "bill tracker",
+          "financial planner",
+          "expense tracker",
+          "christmas budget",
+          "net worth tracker"
+        ],
+        "materials": [
+          "Google Sheets",
+          "Microsoft Excel",
+          "XLSX",
+          "PDF guide"
+        ],
+        "files": [
+          "../2027-money-planner/product/dist/2027-Money-Planner.xlsx",
+          "../2027-money-planner/product/dist/2027-Money-Planner-DEMO.xlsx",
+          "../2027-money-planner/product/dist/2027-Money-Planner-GUIDE.pdf"
+        ],
+        "video": "../2027-money-planner/images/listing/etsy-bundle-video.mp4"
+      },
+      "gumroad": {
+        "enabled": true,
+        "custom_permalink": "money-planner-2027",
+        "cover": "../2027-money-planner/images/listing/gumroad-cover.jpg",
+        "thumbnail": "../2027-money-planner/images/listing/gumroad-thumb.jpg"
+      },
+      "polar": {
+        "enabled": true,
+        "benefit_description": "2027 Money Planner (files)"
+      },
+      "itch": {
+        "enabled": false
+      }
+    },
+    {
+      "id": "planner-holiday",
+      "version": "1.0.0",
+      "title": "Christmas Budget & Gift Tracker Spreadsheet",
+      "summary": "Plan every gift and stay on budget. Excel & Google Sheets.",
+      "price_usd": 5.99,
+      "description_file": "listings/planner-holiday.txt",
+      "tags": [
+        "budget planner",
+        "spreadsheet",
+        "google sheets",
+        "excel template",
+        "personal finance"
+      ],
+      "files": [
+        "../2027-money-planner/product/dist/Holiday-Budget-Gift-Tracker.zip"
+      ],
+      "images": [
+        "../2027-money-planner/images/listing/etsy-holiday-01-hero.jpg",
+        "../2027-money-planner/images/listing/etsy-holiday-02-detail.jpg",
+        "../2027-money-planner/images/listing/etsy-bundle-06-holiday-tracker.jpg",
+        "../2027-money-planner/images/listing/etsy-common-09-how-it-works.jpg"
+      ],
+      "etsy": {
+        "enabled": true,
+        "price": 5.99,
+        "taxonomy_id": null,
+        "title": "Christmas Budget & Gift Tracker Spreadsheet, Google Sheets & Excel Holiday Planner, Christmas Gift List Template, Holiday Shopping List",
+        "tags": [
+          "christmas budget",
+          "gift tracker",
+          "holiday planner",
+          "christmas planner",
+          "gift list",
+          "holiday budget",
+          "christmas list",
+          "xmas planner",
+          "gift planner",
+          "google sheets",
+          "christmas shopping",
+          "budget spreadsheet",
+          "christmas gift list"
+        ],
+        "materials": [
+          "Google Sheets",
+          "Microsoft Excel",
+          "XLSX",
+          "PDF guide"
+        ],
+        "files": [
+          "../2027-money-planner/product/dist/Holiday-Budget-Gift-Tracker.xlsx",
+          "../2027-money-planner/product/dist/Holiday-Budget-Gift-Tracker-DEMO.xlsx",
+          "../2027-money-planner/product/dist/Holiday-Budget-Gift-Tracker-GUIDE.pdf"
+        ],
+        "video": "../2027-money-planner/images/listing/etsy-holiday-video.mp4"
+      },
+      "gumroad": {
+        "enabled": true,
+        "custom_permalink": "holiday-gift-tracker",
+        "cover": "../2027-money-planner/images/listing/etsy-holiday-01-hero.jpg"
+      },
+      "polar": {
+        "enabled": true,
+        "benefit_description": "Christmas Budget & Gift Trac (files)"
+      },
+      "itch": {
+        "enabled": false
+      }
+    },
+    {
+      "id": "planner-debt",
+      "version": "1.0.0",
+      "title": "Debt Payoff Planner: Snowball & Avalanche Spreadsheet",
+      "summary": "Find your debt-free date and total interest. Excel & Google Sheets.",
+      "price_usd": 6.99,
+      "description_file": "listings/planner-debt.txt",
+      "tags": [
+        "budget planner",
+        "spreadsheet",
+        "google sheets",
+        "excel template",
+        "personal finance"
+      ],
+      "files": [
+        "../2027-money-planner/product/dist/Debt-Payoff-Planner.zip"
+      ],
+      "images": [
+        "../2027-money-planner/images/listing/etsy-debt-01-hero.jpg",
+        "../2027-money-planner/images/listing/etsy-bundle-05-debt-payoff.jpg",
+        "../2027-money-planner/images/listing/etsy-debt-02-schedule.jpg",
+        "../2027-money-planner/images/listing/etsy-common-09-how-it-works.jpg"
+      ],
+      "etsy": {
+        "enabled": true,
+        "price": 6.99,
+        "taxonomy_id": null,
+        "title": "Debt Payoff Planner Spreadsheet, Debt Snowball & Avalanche Calculator, Google Sheets & Excel Debt Tracker, Credit Card & Loan Payoff Plan",
+        "tags": [
+          "debt snowball",
+          "debt payoff tracker",
+          "debt tracker",
+          "debt avalanche",
+          "debt free",
+          "debt payoff plan",
+          "loan payoff",
+          "credit card payoff",
+          "debt calculator",
+          "google sheets",
+          "excel template",
+          "budget spreadsheet",
+          "debt planner"
+        ],
+        "materials": [
+          "Google Sheets",
+          "Microsoft Excel",
+          "XLSX",
+          "PDF guide"
+        ],
+        "files": [
+          "../2027-money-planner/product/dist/Debt-Payoff-Planner.xlsx",
+          "../2027-money-planner/product/dist/Debt-Payoff-Planner-DEMO.xlsx",
+          "../2027-money-planner/product/dist/Debt-Payoff-Planner-GUIDE.pdf"
+        ],
+        "video": "../2027-money-planner/images/listing/etsy-debt-video.mp4"
+      },
+      "gumroad": {
+        "enabled": true,
+        "custom_permalink": "debt-payoff-planner",
+        "cover": "../2027-money-planner/images/listing/etsy-debt-01-hero.jpg"
+      },
+      "polar": {
+        "enabled": true,
+        "benefit_description": "Debt Payoff Planner (files)"
+      },
+      "itch": {
+        "enabled": false
+      }
+    }
+  ]
+}

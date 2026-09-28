@@ -1,0 +1,25 @@
+Find out exactly when you'll be debt-free and how much interest you'll pay. Enter your debts, choose Snowball or Avalanche, and the spreadsheet builds your month-by-month payoff plan. Works in Google Sheets (free) and Microsoft Excel.
+
+★ FEATURES
+• Up to 6 debts: credit cards, car loan, student loan, personal loans
+• One-click strategy: Snowball (smallest balance first) or Avalanche (highest interest first)
+• Add an extra monthly payment and see how much sooner you're debt-free
+• Payoff month and date for every debt
+• Interest paid and total paid for each debt
+• Debt-free date, months to go and total interest at a glance
+• Payments automatically roll over to the next debt when one is paid off
+• Full month-by-month schedule (up to 30 years) + balance chart
+
+★ WHAT YOU GET
+1 × debt payoff spreadsheet (.xlsx), clean and ready to use
+1 × demo spreadsheet (.xlsx) with sample data
+1 × PDF quick-start guide
+
+★ PLEASE NOTE
+• DIGITAL product. Nothing will be shipped.
+• Works in any currency.
+• Results are estimates based on the numbers you enter. This is a planning tool, not financial advice.
+• For personal use only. Please do not share or resell.
+• Want the full budget system too? See the 2027 Money Planner in my shop. It includes this planner.
+
+Designed with AI assistance, built and checked by AMEM Sheets.

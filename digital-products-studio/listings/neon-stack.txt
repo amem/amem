@@ -1,0 +1,21 @@
+Neon Stack is a polished one-tap HTML5 arcade game: stack glowing blocks as high as you can and chase perfect drops. You get the complete, clean source code, ready to publish on web-game portals, itch.io, your own site or as a mobile app.
+
+★ WHAT YOU GET
+• Complete source code in plain HTML5 + JavaScript: no engine, no framework, no build step
+• Works on phones, tablets and desktops (touch, mouse and keyboard)
+• Sharp on retina screens; smooth 60 fps
+• Sound effects generated in code, so there are no audio licenses to worry about
+• Perfect-drop combos, block regrowth, particles, best score, pause and mute
+• Portal hooks for gameplay events and ad breaks (docs/PORTALS.md)
+• Installable as a web app (manifest and icons)
+• Unit tests for the game logic and browser tests that play the game
+
+★ RESKIN IN 5 MINUTES
+Every text, color, speed and difficulty setting lives in one file (js/config.js). Translate it, rebrand it, and publish your own version.
+
+★ LICENSE
+Standard license: publish one game (free or paid, with ads) on unlimited platforms. You may not resell the source code itself. See LICENSE.txt.
+
+★ PLEASE NOTE
+• Digital download: a ZIP with the full project and documentation.
+• Built with AI assistance, then tested and reviewed.

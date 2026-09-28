@@ -1,0 +1,23 @@
+Create professional invoices and quotes in your browser, save them as PDF, and track what's been paid, with no subscription and no account. Invoice Studio runs offline and your data never leaves your device.
+
+★ FEATURES
+• Invoices and quotes with automatic numbering, plus one-click quote → invoice
+• Client list, due dates (Net 7/14/30), partial payments and balance due
+• Multiple tax rates, discounts (percent or fixed) and rounding that fits each currency
+• 40 currencies, 20 number/date formats, invoices in 7 languages (EN, FR, ES, DE, IT, PT, NL)
+• 3 designs (Modern, Classic, Minimal), with your logo and accent color, on A4 or US Letter
+• Save as PDF in one click; the file is named after the invoice number
+• Dashboard: outstanding, overdue and paid totals, filters and search
+• Backup and restore, plus CSV export for Excel or your accountant
+• Works on desktop, tablet and phone, in light and dark mode
+
+★ HOW IT WORKS
+1. Download and unzip
+2. Double-click index.html; it opens in your browser, even offline
+3. Add your business details once, then create invoices in seconds
+
+★ PLEASE NOTE
+• Digital download: a ZIP with the app and a guide. Nothing is shipped.
+• Data is stored in your browser; export a backup regularly.
+• A document tool, not accounting or tax advice.
+• Built with AI assistance, then tested and reviewed.

@@ -1,0 +1,22 @@
+11 ready-to-use Python scripts that save you hours of boring computer work, plus a simple menu so beginners never need to touch the command line. They work on Windows, macOS and Linux.
+
+★ WHAT'S INSIDE
+• Organize a messy folder (Downloads!) by type or date, with undo
+• Bulk rename hundreds of files with patterns, with preview and undo
+• Find duplicate files by content and free up space
+• Batch resize, convert and compress images; fix phone rotation; strip GPS data
+• Merge, split, extract and rotate PDF pages
+• Turn a CSV export into a formatted Excel report with totals and a summary
+• Merge many CSV and Excel files into one
+• Timestamped, verified ZIP backups that keep only the latest N
+• Website monitor: uptime, speed and SSL expiry, with an email alert
+• Mail merge: personalized emails from a CSV, previewed before anything is sent
+• Extract emails, phone numbers and links from text, HTML and CSV files
+
+★ SAFE BY DEFAULT
+Preview modes, undo files and originals left untouched. No passwords are stored in files. Includes 24 automated tests.
+
+★ PLEASE NOTE
+• Digital download: a ZIP with the scripts, a README and sample files.
+• Requires Python 3.9+ (free), plus three libraries installed with one command.
+• Built with AI assistance, then tested and reviewed.
