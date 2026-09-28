@@ -74,3 +74,35 @@ RULES: save as drafts only (do not publish or activate), and stop and ask me for
 Read https://github.com/amem/amem/blob/claude/amazing-fermi-z9xobq/2027-money-planner/listings/ETSY_LISTINGS.md (3 planner listings) and https://github.com/amem/amem/blob/claude/amazing-fermi-z9xobq/digital-products-studio/listings/LISTINGS.md (Invoice Studio and Watermark Studio Etsy titles and tags; descriptions are in the .txt files in the same folder).
 For each of the 5 listings: create a digital listing with its title, price, 13 tags, description and "Digital files" type. Ask me to upload the photos and files from Downloads/amem-products. Answer Etsy's AI question honestly: these products were made with AI assistance. Show me a summary at the end.
 ```
+
+---
+
+## Prompt 5: itch.io (Neon Stack game + source code)
+
+Create your itch.io account first (itch.io/register; verify your email yourself). Then paste:
+
+```
+Help me create two itch.io projects in this browser. I'm signed in to itch.io.
+RULES: keep both projects' visibility on "Draft" (I will make them public myself), stop and ask me for any payment, payout, tax, verification or terms step, and ask me to upload files from Downloads/amem-products. Don't message anyone.
+
+PROJECT 1 (Dashboard → Create new project):
+- Title: Neon Stack · Kind of project: HTML
+- Upload neon-stack-web-v1.0.0.zip and tick "This file will be played in the browser"
+- Embed options: viewport 480 x 800, "Mobile friendly" on, fullscreen button on
+- Pricing: No payment required (donations allowed)
+- Short description: Stack the neon blocks as high as you can. One tap to play.
+- Genre: Arcade · Tags: arcade, casual, one-button, neon, stacking, mobile, singleplayer
+- Cover image: images/neon-stack/itch-cover.jpg
+- Description: "Stack glowing blocks as high as you can. Tap, click or press Space to drop each block, and chase PERFECT drops to grow your tower back. Want to make your own version? The full HTML5 source code is available: see my other project, Neon Stack: HTML5 Source Code."
+- Generative AI disclosure: Yes → Code
+
+PROJECT 2:
+- Title: Neon Stack: HTML5 Source Code · Kind of project: Downloadable
+- Classification: Game assets · Upload neon-stack-v1.0.0.zip · Price: $19 (no pay-what-you-want below $19)
+- Cover image: images/neon-stack/itch-cover.jpg
+- Description: copy the text exactly from https://raw.githubusercontent.com/amem/amem/claude/amazing-fermi-z9xobq/digital-products-studio/listings/neon-stack.txt
+- Tags: html5, javascript, source-code, game-template, casual
+- Generative AI disclosure: Yes → Code
+
+Finally, show me both project page links and what's still missing.
+```
