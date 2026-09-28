@@ -106,3 +106,23 @@ PROJECT 2:
 
 Finally, show me both project page links and what's still missing.
 ```
+
+---
+
+## Prompt 6: Check everything (read-only)
+
+Paste this any time to see where each platform stands. It changes nothing.
+
+```
+Check my seller accounts in this browser. Only look: don't edit, publish, delete or message anything, and skip any site where I'm not signed in or have no account.
+Visit Gumroad (Products, then Checkout → Discounts), itch.io (Dashboard), Etsy (Shop Manager → Listings), Fiverr (Gigs) and Upwork (my profile). Compare what you find with this plan:
+- Gumroad, published: Neon Stack $19 · Invoice Studio $19 · Watermark Studio $12 · Python Automation Kit $15 · 2027 Money Planner $12.99 · Christmas Budget & Gift Tracker $5.99 · Debt Payoff Planner $6.99 · discount code LAUNCH25 (25% off)
+- itch.io, draft: "Neon Stack" (HTML, playable in the browser, free) · "Neon Stack: HTML5 Source Code" (downloadable, $19)
+- Etsy, draft: 2027 Money Planner $12.99 · Christmas Budget & Gift Tracker $5.99 · Debt Payoff Planner $6.99 · Invoice Studio $12.99 · Watermark Studio $9.99
+- Fiverr, draft: 4 gigs (budget spreadsheet, invoice app, HTML5 game reskin, Python script)
+- Upwork: profile title, overview, skills and hourly rate filled in
+Reply with one table: platform, item, status (published / draft / missing), price, file attached (yes / no / n.a.), cover image (yes / no), problems.
+Then give me my public Gumroad store link, tell me about any banner asking me to finish setup (email confirmation, payout method, tax form, verification), and list the next steps only I can do.
+```
+
+Copy the table into your chat with Claude Code for a second review.
