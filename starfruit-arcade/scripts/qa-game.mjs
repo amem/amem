@@ -145,11 +145,7 @@ async function runViewport(browser, name, serverUrl) {
   s = await getState(page);
   if (s && s.screen !== 'playing') issue(name, `after Play expected "playing", got "${s.screen}"`);
 
-  await randomPlay(page, PLAY_SECONDS, vp, mobile);
-  s = await getState(page);
-  notes.push(`[${name}] after ${PLAY_SECONDS}s random play: ${JSON.stringify(s)}`);
-  await shot('2-playing');
-
+  // Pause / resume straight away, while the round is certainly still running.
   if (s && s.screen === 'playing') {
     await page.keyboard.press('Escape');
     await page.waitForTimeout(400);
@@ -161,6 +157,11 @@ async function runViewport(browser, name, serverUrl) {
     s = await getState(page);
     if (s && s.screen !== 'playing') issue(name, `Resume should return to "playing", got "${s.screen}"`);
   }
+
+  await randomPlay(page, PLAY_SECONDS, vp, mobile);
+  s = await getState(page);
+  notes.push(`[${name}] after ${PLAY_SECONDS}s random play: ${JSON.stringify(s)}`);
+  await shot('2-playing');
 
   const canForce = await page.evaluate(() => !!(window.__GAME__ && window.__GAME__.forceGameOver));
   if (!canForce) issue(name, 'window.__GAME__.forceGameOver() missing');

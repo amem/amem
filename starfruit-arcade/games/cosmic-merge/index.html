@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#070a22">
+<meta name="description" content="Cosmic Merge: drop planets, merge them into bigger ones, and make a star. A physics merge puzzle for phone and desktop.">
+<title>Cosmic Merge</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="game" aria-label="Game area"></canvas>
+
+<header class="hud" id="hud">
+  <div class="hud-actions">
+    <button type="button" class="icon-btn" data-action="sound" aria-label="Sound on or off">
+      <svg class="i-sound-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="i-sound-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M17 9.5l5 5M22 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <button type="button" class="icon-btn" data-action="pause" aria-label="Pause">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.2" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1.2" fill="currentColor"/></svg>
+    </button>
+  </div>
+</header>
+
+<p class="hint" id="hint"></p>
+
+<section class="screen screen-title" id="screen-title" aria-labelledby="title-logo">
+  <div class="panel panel-title">
+    <h1 class="logo" id="title-logo">COSMIC MERGE</h1>
+    <p class="tagline" data-text="tagline">Drop. Merge. Make a star.</p>
+    <div class="chain" id="title-chain" aria-label="Evolution chain"></div>
+    <p class="best-line"><span data-text="best">Best</span> <strong data-best>0</strong></p>
+    <button type="button" class="btn btn-primary btn-play" data-action="play">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+      <span data-text="play">Play</span>
+    </button>
+    <button type="button" class="btn btn-ghost" data-action="sound">
+      <svg class="i-sound-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="i-sound-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M17 9.5l5 5M22 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <span data-text="sound">Sound</span>: <span data-sound-label>On</span>
+    </button>
+    <p class="howto" data-text="howTo">Match two identical planets to merge them into a bigger one.</p>
+  </div>
+  <p class="credit" data-credit></p>
+</section>
+
+<section class="screen screen-pause" id="screen-pause" aria-labelledby="pause-title">
+  <div class="panel panel-compact">
+    <h2 class="panel-heading" id="pause-title" data-text="paused">Paused</h2>
+    <button type="button" class="btn btn-primary" data-action="resume">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+      <span data-text="resume">Resume</span>
+    </button>
+    <button type="button" class="btn btn-ghost" data-action="restart">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12a7 7 0 1 0 2.1-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M4 4v5h5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span data-text="restart">Restart</span>
+    </button>
+    <div class="row">
+      <button type="button" class="btn btn-ghost" data-action="sound">
+        <svg class="i-sound-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg class="i-sound-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M17 9.5l5 5M22 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span data-sound-label>On</span>
+      </button>
+      <button type="button" class="btn btn-ghost" data-action="home">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5V20h-5.5v-5h-5v5H4z" fill="currentColor"/></svg>
+        <span data-text="home">Home</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="screen screen-over" id="screen-over" aria-labelledby="over-title">
+  <div class="panel panel-compact">
+    <h2 class="panel-heading" id="over-title" data-text="gameOver">Jar Overflow!</h2>
+    <p class="final" id="final-score">0</p>
+    <p class="badge" id="new-best" data-text="newBest" hidden>NEW BEST!</p>
+    <div class="reached">
+      <img id="reached-icon" alt="" width="44" height="44">
+      <p><span data-text="reached">Biggest merge</span><strong id="reached-name">Moon</strong></p>
+    </div>
+    <p class="best-line"><span data-text="best">Best</span> <strong data-best>0</strong></p>
+    <button type="button" class="btn btn-primary" data-action="restart">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12a7 7 0 1 0 2.1-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M4 4v5h5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span data-text="playAgain">Play again</span>
+    </button>
+    <div class="row">
+      <button type="button" class="btn btn-ghost" data-action="home">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5V20h-5.5v-5h-5v5H4z" fill="currentColor"/></svg>
+        <span data-text="home">Home</span>
+      </button>
+      <button type="button" class="btn btn-ghost" data-action="share">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2.6" fill="currentColor"/><circle cx="18" cy="6" r="2.6" fill="currentColor"/><circle cx="18" cy="18" r="2.6" fill="currentColor"/><path d="M8.3 10.8l7.4-3.6M8.3 13.2l7.4 3.6" stroke="currentColor" stroke-width="2"/></svg>
+        <span data-text="share">Share</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="config.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/sprites.js"></script>
+<script src="js/physics.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
