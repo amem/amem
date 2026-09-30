@@ -1,0 +1,125 @@
+{
+  "studio": "Starfruit Arcade",
+  "version": "1.0.0",
+  "products": [
+    {
+      "id": "neon-stack",
+      "number": "01",
+      "title": "Neon Stack",
+      "tagline": "Stack it perfect. Stack it high.",
+      "genre": "Hyper-casual arcade",
+      "summary": "A one-tap isometric stacking game with a neon synthwave look, perfect-drop combos, a growing tower and a cinematic zoom-out finale.",
+      "accent": "#ff3cac",
+      "accent2": "#2b86c5",
+      "controls": "Tap, click or press Space to drop the block.",
+      "tags": ["hyper-casual", "one-tap", "isometric", "arcade", "mobile", "neon"],
+      "features": [
+        "One-tap gameplay that anyone understands in 2 seconds",
+        "Isometric 2.5D rendering with neon edges and a synthwave grid",
+        "Perfect-drop combos, block regrow and rising musical chimes",
+        "Cinematic camera zoom-out on game over",
+        "Built-in demo bot for trailers and an animated title screen",
+        "Everything reskinnable from one commented config file"
+      ],
+      "price": { "standard": 15, "extended": 49 }
+    },
+    {
+      "id": "cosmic-merge",
+      "number": "02",
+      "title": "Cosmic Merge",
+      "tagline": "Drop. Merge. Make a star.",
+      "genre": "Physics merge puzzle",
+      "summary": "A drop-and-merge physics puzzle in the genre that took over app stores and streams: combine cute planets into bigger ones, all the way to a black hole.",
+      "accent": "#7b5cff",
+      "accent2": "#ffb347",
+      "controls": "Move to aim, tap or click to drop. Arrow keys + Space on keyboard.",
+      "tags": ["merge", "physics", "puzzle", "casual", "space", "mobile"],
+      "features": [
+        "Stable custom circle physics that settles 60+ bodies smoothly",
+        "11 hand-drawn procedural planets with cute animated faces",
+        "Combo chains, evolution chain and first-discovery banners",
+        "Aim guide, next preview and a fair overflow rule",
+        "Swap planets for fruit, candy or your brand's products",
+        "Built-in demo bot for trailers and an animated title screen"
+      ],
+      "price": { "standard": 19, "extended": 69 }
+    },
+    {
+      "id": "brick-blitz",
+      "number": "03",
+      "title": "Brick Blitz",
+      "tagline": "Smash. Power up. Blitz through 12 levels.",
+      "genre": "Arcade brick-breaker",
+      "summary": "A neon brick-breaker with 12 handcrafted levels, 8 power-ups, explosive chain reactions, level select and progress saving.",
+      "accent": "#00e5ff",
+      "accent2": "#ff5e62",
+      "controls": "Move the mouse or drag to steer, tap or press Space to launch.",
+      "tags": ["breakout", "arcade", "levels", "power-ups", "retro", "mobile"],
+      "features": [
+        "12 handcrafted levels in a plain-text level format you can edit",
+        "8 power-ups: multi-ball, laser, fireball, catch, wide, slow and more",
+        "Explosive bricks with chain reactions, steel bricks, combos",
+        "Level select with saved progress and an endless loop mode",
+        "Tunnel-proof sub-stepped ball physics",
+        "Built-in demo bot for trailers and an animated title screen"
+      ],
+      "price": { "standard": 17, "extended": 59 }
+    },
+    {
+      "id": "promo-arcade",
+      "number": "04",
+      "title": "Promo Arcade",
+      "tagline": "Branded mini-games that turn visitors into customers.",
+      "genre": "Branded marketing games kit",
+      "summary": "Three brandable mini-games (Catch Rush, Memory Match and Spin & Win) for shops, cafés, events and campaigns: rewards, coupon codes, lead capture and a one-file rebrand.",
+      "accent": "#ff7a18",
+      "accent2": "#1fd1a5",
+      "controls": "Tap or click. Drag or use arrow keys in Catch Rush.",
+      "tags": ["advergame", "marketing", "prize wheel", "memory game", "lead generation", "branding"],
+      "features": [
+        "3 games in one kit: Catch Rush, Memory Match, Spin & Win",
+        "Rebrand everything (logo, colours, products, prizes) in one file",
+        "Coupon-code rewards by score, weighted prize wheel odds",
+        "Optional lead-capture form that posts to any webhook",
+        "Spins-per-day limit, share buttons, analytics hooks",
+        "Mobile-first design for QR codes, social links and kiosks"
+      ],
+      "price": { "standard": 29, "extended": 99 }
+    }
+  ],
+  "bundle": {
+    "id": "starfruit-arcade-bundle",
+    "title": "Starfruit Arcade Complete Bundle",
+    "tagline": "All 4 products. One price.",
+    "price": { "standard": 59, "extended": 179 }
+  },
+  "services": [
+    {
+      "id": "branded-game",
+      "title": "Branded mini-game for your business",
+      "summary": "A catch game, memory game or prize wheel in your logo, colours and products, with coupon rewards and optional lead capture. Share it by link, QR code or on your website.",
+      "demo": "promo-arcade",
+      "from": 60,
+      "days": 3,
+      "includes": ["Your logo, colours and products", "Coupon-code rewards", "Works on every phone", "Hosting help included"]
+    },
+    {
+      "id": "custom-game",
+      "title": "Custom HTML5 game",
+      "summary": "A reskin of one of our games in your theme, or an original arcade or puzzle game built around your idea. Ready for your website, itch.io or game portals.",
+      "demo": "cosmic-merge",
+      "from": 90,
+      "days": 4,
+      "includes": ["Playable preview in 48 hours", "Full source code", "Ad-SDK ready hooks", "Mobile and desktop"]
+    },
+    {
+      "id": "game-fixes",
+      "title": "Game and web fixes",
+      "summary": "Bugs, mobile layout problems, slow performance, or an ad SDK to integrate in your HTML5 game or JavaScript site. Clear fixed price before any work starts.",
+      "demo": "brick-blitz",
+      "from": 25,
+      "days": 1,
+      "includes": ["Fixed price up front", "Tested on phone and desktop", "Short report of what changed", "Delivery in 1–3 days"]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "starfruit-arcade",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Starfruit Arcade — HTML5 game products, portfolio site and freelance sales kit.",
+  "type": "module",
+  "scripts": {
+    "qa": "node scripts/qa-all.mjs",
+    "build": "node scripts/build.mjs",
+    "assets": "node scripts/make-assets.mjs",
+    "serve": "node scripts/build.mjs && node scripts/serve.mjs",
+    "test": "node scripts/qa-all.mjs && node scripts/build.mjs --check"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
