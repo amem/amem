@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d4d3a">
+<meta name="description" content="Play a quick game and win a reward.">
+<title>Play &amp; Win</title>
+<link rel="stylesheet" href="shared/ui.css">
+</head>
+<body class="hub">
+
+<header class="hub-top">
+  <div class="pa-logo" data-brand-logo></div>
+  <a class="btn btn-sm btn-accent" data-cta hidden></a>
+  <p class="hub-tagline" data-brand="tagline"></p>
+</header>
+
+<section class="hub-hero">
+  <div class="hub-hero-copy">
+    <p class="hub-kicker" data-hub="kicker">Play &amp; Win</p>
+    <h1 class="hub-headline" data-hub="headline">Play a game. Win a treat.</h1>
+    <p class="hub-sub" data-hub="subline"></p>
+    <a class="btn btn-primary btn-xl" href="spin-win/index.html" data-hub="button">Spin the wheel</a>
+  </div>
+  <div class="hub-hero-art" aria-hidden="true">
+    <div class="hub-burst"></div>
+    <div data-hero-products></div>
+    <div class="hub-hero-logo" data-hero-logo></div>
+  </div>
+</section>
+
+<main class="hub-main">
+  <section class="hub-games" aria-label="Games">
+    <a class="hub-card" href="catch-rush/index.html" data-game="catchRush">
+      <div class="hub-preview hub-preview-catch" data-preview="catchRush" aria-hidden="true"></div>
+      <div class="hub-card-body">
+        <h2 data-game-title>Catch Rush</h2>
+        <p data-game-desc></p>
+        <p class="hub-card-reward" data-game-reward></p>
+        <span class="btn btn-primary btn-sm" data-t="play">Play</span>
+      </div>
+    </a>
+    <a class="hub-card" href="memory-match/index.html" data-game="memoryMatch">
+      <div class="hub-preview hub-preview-memory" data-preview="memoryMatch" aria-hidden="true"></div>
+      <div class="hub-card-body">
+        <h2 data-game-title>Memory Match</h2>
+        <p data-game-desc></p>
+        <p class="hub-card-reward" data-game-reward></p>
+        <span class="btn btn-primary btn-sm" data-t="play">Play</span>
+      </div>
+    </a>
+    <a class="hub-card" href="spin-win/index.html" data-game="spinWin">
+      <div class="hub-preview hub-preview-spin" data-preview="spinWin" aria-hidden="true"></div>
+      <div class="hub-card-body">
+        <h2 data-game-title>Spin &amp; Win</h2>
+        <p data-game-desc></p>
+        <p class="hub-card-reward" data-game-reward></p>
+        <span class="btn btn-primary btn-sm" data-t="play">Play</span>
+      </div>
+    </a>
+  </section>
+
+  <section class="hub-rewards">
+    <h2 data-hub="rewardsTitle">Rewards</h2>
+    <ul class="hub-ticket-list" data-reward-list></ul>
+  </section>
+</main>
+
+<footer class="hub-foot">
+  <p data-brand="legal"></p>
+  <p data-brand="credit"></p>
+</footer>
+
+<script src="brand.config.js"></script>
+<script src="shared/icons.js"></script>
+<script src="shared/brand.js"></script>
+<script>window.PromoArcade.initHub();</script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0d4d3a">
+<meta name="description" content="Catch Rush: catch the falling products in 30 seconds and win a reward.">
+<title>Catch Rush</title>
+<link rel="stylesheet" href="../shared/ui.css">
+</head>
+<body class="pa-game game-catch-rush" data-screen="title">
+
+<header class="pa-top">
+  <a class="pa-back" href="../index.html">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span data-t="allGames">All games</span>
+  </a>
+  <div class="pa-logo" data-brand-logo></div>
+  <div class="pa-top-actions">
+    <button type="button" class="icon-btn" data-action="sound" aria-label="Sound on or off">
+      <svg class="i-sound-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="i-sound-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M17 9.5l5 5M22 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <button type="button" class="icon-btn pa-pause-btn" data-action="pause" aria-label="Pause">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.2" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1.2" fill="currentColor"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="pa-stage" id="stage">
+  <canvas id="game" aria-label="Game area"></canvas>
+
+  <div class="pa-hud">
+    <div class="pa-chip pa-chip-side cr-time" id="hud-time">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M12 9v4.5l3 2M9.5 2.5h5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span id="hud-time-value">30</span>
+    </div>
+    <div class="pa-chip pa-chip-score" id="hud-score" aria-live="off">0</div>
+    <div class="pa-chip pa-chip-side cr-combo" id="hud-combo">
+      <small data-g="combo">Combo</small> <span id="hud-combo-value">×1</span>
+    </div>
+  </div>
+  <p class="pa-hint" id="pa-hint"></p>
+
+  <section class="pa-screen pa-screen-title" id="screen-title" aria-labelledby="game-title">
+    <div class="pa-panel pa-panel-title">
+      <div class="pa-title-art" data-title-art aria-hidden="true"></div>
+      <h1 class="pa-game-title" id="game-title" data-game-title>Catch Rush</h1>
+      <p class="pa-howto" data-game-howto></p>
+      <p class="pa-teaser">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h16v10H4zM2.5 6.5h19V10h-19zM12 6.5V20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 6.5C10 2.5 6 2.5 6.5 5S12 6.5 12 6.5s5.5 1 5.5-1.5-4-2.5-5.5 1.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        <span data-reward-teaser></span>
+      </p>
+      <div>
+        <button type="button" class="btn btn-primary btn-xl" data-action="play" data-autofocus>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+          <span data-t="play">Play</span>
+        </button>
+      </div>
+      <p class="pa-meta">
+        <span data-t="best">Best</span> <b data-best>0</b> ·
+        <button type="button" class="btn-link" data-action="sound"><span data-t="sound">Sound</span>: <span data-sound-label>On</span></button>
+      </p>
+      <p class="pa-legal" data-brand="legal"></p>
+    </div>
+    <p class="pa-credit" data-brand="credit"></p>
+  </section>
+
+  <section class="pa-screen" id="screen-pause" aria-labelledby="pause-title">
+    <div class="pa-panel pa-panel-compact">
+      <h2 id="pause-title" data-t="paused">Paused</h2>
+      <div class="pa-stack">
+        <button type="button" class="btn btn-primary btn-block" data-action="resume" data-autofocus>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+          <span data-t="resume">Resume</span>
+        </button>
+        <button type="button" class="btn btn-ghost btn-block" data-action="restart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12a7 7 0 1 0 2.1-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M4 4v5h5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span data-t="restart">Restart</span>
+        </button>
+        <div class="pa-row">
+          <button type="button" class="btn btn-ghost" data-action="sound">
+            <svg class="i-sound-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg class="i-sound-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M17 9.5l5 5M22 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <span data-sound-label>On</span>
+          </button>
+          <button type="button" class="btn btn-ghost" data-action="home">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5V20h-5.5v-5h-5v5H4z" fill="currentColor"/></svg>
+            <span data-t="home">Home</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pa-screen" id="screen-over" aria-labelledby="over-heading">
+    <div class="pa-panel pa-panel-over">
+      <div class="pa-over-main">
+        <h2 class="pa-over-heading" id="over-heading" data-over="heading">Time's up!</h2>
+        <p class="pa-over-sub" data-over="sub" hidden></p>
+        <div class="pa-stars" data-over="stars" hidden></div>
+        <p class="pa-over-score" data-over="score">0</p>
+        <p class="pa-badge" data-over="newbest" data-t="newBest" hidden>New best!</p>
+        <p class="pa-stats" data-over="stats"></p>
+      </div>
+      <div class="pa-over-reward" data-over="reward"></div>
+      <div class="pa-over-actions">
+        <a class="btn btn-accent btn-block" data-cta hidden></a>
+        <button type="button" class="btn btn-primary btn-block" data-action="restart" data-autofocus>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12a7 7 0 1 0 2.1-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M4 4v5h5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span data-over="again">Play again</span>
+        </button>
+        <div class="pa-row">
+          <button type="button" class="btn btn-ghost" data-action="home">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5V20h-5.5v-5h-5v5H4z" fill="currentColor"/></svg>
+            <span data-t="home">Home</span>
+          </button>
+          <button type="button" class="btn btn-ghost" data-action="share">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2.6" fill="currentColor"/><circle cx="18" cy="6" r="2.6" fill="currentColor"/><circle cx="18" cy="18" r="2.6" fill="currentColor"/><path d="M8.3 10.8l7.4-3.6M8.3 13.2l7.4 3.6" stroke="currentColor" stroke-width="2"/></svg>
+            <span data-t="share">Share</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="../brand.config.js"></script>
+<script src="../shared/icons.js"></script>
+<script src="../shared/brand.js"></script>
+<script src="config.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
