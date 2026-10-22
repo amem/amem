@@ -151,6 +151,7 @@ body{position:relative;font-family:'Figtree',system-ui,sans-serif;color:var(--in
 .display{font-family:'Unbounded','Arial Black',sans-serif;font-weight:800;letter-spacing:-0.02em;line-height:1.02}
 .mono{font-family:'JetBrains Mono',monospace;font-weight:500;letter-spacing:.02em}
 .abs{position:absolute}
+.col{display:flex;flex-direction:column;justify-content:center;gap:26px}
 .phone{position:absolute;aspect-ratio:390/844;background:#0b0f0d;border-radius:11%/5.2%;padding:2.6%;
   box-shadow:0 0 0 2px #26302b,0 30px 60px -20px rgba(0,0,0,.55)}
 .phone img{width:100%;height:100%;object-fit:cover;border-radius:9%/4.2%;display:block}
@@ -203,7 +204,7 @@ async function composeAll() {
   // ---- itch.io covers (630×500)
   for (const p of catalog.products) {
     jobs.push(() => compose(`itch/${p.id}-cover.png`, 630, 500, `
-      <img class="abs" src="${shot(`${p.id}-card-1`)}" style="inset:0;width:630px;height:500px;object-fit:cover">
+      <img class="abs" src="${shot(['cosmic-merge', 'neon-stack'].includes(p.id) ? `${p.id}-phone-1` : `${p.id}-card-1`)}" style="inset:0;width:630px;height:500px;object-fit:cover;object-position:center ${p.id === 'cosmic-merge' ? 93 : 60}%">
       <div class="abs" style="inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.82) 100%)"></div>
       <h1 class="abs display" style="left:32px;bottom:78px;font-size:58px;color:#fff;text-shadow:0 4px 24px rgba(0,0,0,.5)">${esc(p.title)}</h1>
       <p class="abs" style="left:34px;bottom:36px;font-size:24px;font-weight:700;color:${p.accent === '#ff7a18' ? '#ffd29a' : '#fff'}">${esc(p.tagline)}</p>
@@ -276,9 +277,11 @@ async function composeAll() {
   // Gig 1 — branded mini-game
   jobs.push(() => compose('fiverr/gig1-branded-game-1.png', W, H, `
     <div class="abs" style="inset:0;background:var(--star)"></div>
-    <h1 class="abs display" style="left:64px;top:92px;width:600px;font-size:92px">Your brand. Your game.</h1>
-    <p class="abs" style="left:66px;top:352px;width:560px;font-size:32px;font-weight:700;line-height:1.3">Branded mini-games for shops, cafés, events and campaigns</p>
-    <div class="abs chips" style="left:66px;top:520px;width:560px;color:var(--ink)"><span class="chip">Coupon rewards</span><span class="chip">Lead capture</span><span class="chip">Any phone</span></div>
+    <div class="abs col" style="left:64px;top:0;bottom:0;width:590px">
+      <h1 class="display" style="font-size:78px">Your brand.<br>Your game.</h1>
+      <p style="font-size:30px;font-weight:700;line-height:1.3">Branded mini-games for shops, cafés, events and campaigns</p>
+      <div class="chips" style="color:var(--ink)"><span class="chip">Coupon rewards</span><span class="chip">Lead capture</span><span class="chip">Any phone</span></div>
+    </div>
     ${phone(shot('memory-match-phone-1'), 'left:690px;top:120px;width:230px;transform:rotate(-7deg)')}
     ${phone(shot('spin-win-phone-1'), 'left:1010px;top:120px;width:230px;transform:rotate(7deg)')}
     ${phone(shot('catch-rush-phone-1'), 'left:840px;top:60px;width:260px;z-index:2')}
@@ -288,7 +291,7 @@ async function composeAll() {
     <h1 class="abs display" style="left:64px;top:56px;font-size:60px;color:var(--star)">3 games. 1 brand file.</h1>
     ${[['catch-rush', 'Catch Rush'], ['memory-match', 'Memory Match'], ['spin-win', 'Spin &amp; Win']].map(([k, label], i) => `
       ${phone(shot(`${k}-phone-1`), `left:${120 + i * 370}px;top:170px;width:250px`)}
-      <p class="abs display" style="left:${120 + i * 370}px;top:${170 + 541 + 14}px;width:250px;text-align:center;font-size:26px;color:#fff">${label}</p>`).join('')}
+      <p class="abs display" style="left:${70 + i * 370}px;top:${170 + 541 + 10}px;width:350px;text-align:center;font-size:22px;color:#fff">${label}</p>`).join('')}
   `, '.phone{box-shadow:0 0 0 2px #3a4a41}'));
   jobs.push(() => compose('fiverr/gig1-branded-game-3.png', W, H, `
     <div class="abs" style="inset:0;background:var(--paper)"></div>
@@ -300,9 +303,11 @@ async function composeAll() {
   // Gig 2 — custom HTML5 game
   jobs.push(() => compose('fiverr/gig2-html5-game-1.png', W, H, `
     <div class="abs" style="inset:0;background:var(--ink)"></div>
-    <h1 class="abs display" style="left:64px;top:84px;width:640px;font-size:80px;color:var(--star)">HTML5 games that play everywhere</h1>
-    <p class="abs" style="left:66px;top:440px;width:560px;font-size:32px;font-weight:700;color:#fff">Phone · Tablet · Desktop · No install</p>
-    <div class="abs chips" style="left:66px;top:540px;width:600px;color:#cfd8cc"><span class="chip">Full source code</span><span class="chip">Ad-SDK ready</span></div>
+    <div class="abs col" style="left:64px;top:0;bottom:0;width:560px">
+      <h1 class="display" style="font-size:66px;color:var(--star)">HTML5 games that play everywhere</h1>
+      <p style="font-size:28px;font-weight:700;color:#fff">Phone · Tablet · Desktop · No install</p>
+      <div class="chips" style="color:#cfd8cc"><span class="chip">Full source code</span><span class="chip">Ad-SDK ready</span></div>
+    </div>
     ${laptop(shot('brick-blitz-desktop-1'), 'left:700px;top:250px;width:520px')}
     ${phone(shot('neon-stack-phone-1'), 'left:660px;top:120px;width:190px;transform:rotate(-6deg);z-index:2')}
     ${phone(shot('cosmic-merge-phone-1'), 'left:1060px;top:80px;width:190px;transform:rotate(6deg);z-index:2')}
@@ -312,7 +317,7 @@ async function composeAll() {
     <h1 class="abs display" style="left:64px;top:56px;font-size:58px">Playable preview in 48 hours</h1>
     ${[['neon-stack', 'Neon Stack'], ['cosmic-merge', 'Cosmic Merge'], ['brick-blitz', 'Brick Blitz']].map(([k, label], i) => `
       ${phone(shot(`${k}-phone-1`), `left:${120 + i * 370}px;top:170px;width:250px`)}
-      <p class="abs display" style="left:${120 + i * 370}px;top:${170 + 541 + 14}px;width:250px;text-align:center;font-size:26px">${label}</p>`).join('')}
+      <p class="abs display" style="left:${70 + i * 370}px;top:${170 + 541 + 10}px;width:350px;text-align:center;font-size:22px">${label}</p>`).join('')}
   `));
   jobs.push(() => compose('fiverr/gig2-html5-game-3.png', W, H, `
     <div class="abs" style="inset:0;background:var(--paper)"></div>
@@ -332,10 +337,12 @@ async function composeAll() {
     <div style="color:#7f8c84">// ✓ 60 fps · ✓ mobile · ✓ portal-ready</div></div>`;
   jobs.push(() => compose('fiverr/gig3-fixes-1.png', W, H, `
     <div class="abs" style="inset:0;background:var(--leaf)"></div>
-    <h1 class="abs display" style="left:64px;top:84px;width:640px;font-size:76px;color:#fff">Fix &amp; speed up your HTML5 game</h1>
-    <div class="abs chips" style="left:66px;top:470px;width:600px;color:var(--star)"><span class="chip">Bugs</span><span class="chip">Mobile layout</span><span class="chip">60 FPS</span><span class="chip">Ads SDK</span></div>
-    <div class="abs" style="left:680px;top:110px;width:560px">${code}</div>
-    ${phone(shot('brick-blitz-phone-1'), 'left:1010px;top:370px;width:170px;transform:rotate(5deg)')}
+    <div class="abs col" style="left:64px;top:0;bottom:0;width:560px">
+      <h1 class="display" style="font-size:64px;color:#fff">Fix &amp; speed up your HTML5 game</h1>
+      <div class="chips" style="color:var(--star)"><span class="chip">Bugs</span><span class="chip">Mobile layout</span><span class="chip">Performance</span><span class="chip">Ads SDK</span></div>
+    </div>
+    <div class="abs" style="left:670px;top:70px;width:570px">${code}</div>
+    ${phone(shot('brick-blitz-phone-1'), 'left:1075px;top:420px;width:150px;transform:rotate(5deg)')}
   `));
   jobs.push(() => compose('fiverr/gig3-fixes-2.png', W, H, `
     <div class="abs" style="inset:0;background:var(--paper)"></div>
@@ -353,9 +360,11 @@ async function composeAll() {
   // Gig 4 — spin the wheel
   jobs.push(() => compose('fiverr/gig4-spin-wheel-1.png', W, H, `
     <div class="abs" style="inset:0;background:#E0245E"></div>
-    <h1 class="abs display" style="left:64px;top:92px;width:600px;font-size:86px;color:#fff">Spin &amp; Win for your brand</h1>
-    <p class="abs" style="left:66px;top:360px;width:560px;font-size:32px;font-weight:700;line-height:1.3;color:#fff">Prize wheel · coupon codes · e-mail sign-ups</p>
-    <div class="abs chips" style="left:66px;top:520px;width:560px;color:#FFC23D"><span class="chip">Your odds</span><span class="chip">One spin a day</span><span class="chip">Any phone</span></div>
+    <div class="abs col" style="left:64px;top:0;bottom:0;width:580px">
+      <h1 class="display" style="font-size:76px;color:#fff">Spin &amp; Win for your brand</h1>
+      <p style="font-size:30px;font-weight:700;line-height:1.3;color:#fff">Prize wheel · coupon codes · e-mail sign-ups</p>
+      <div class="chips" style="color:#FFC23D"><span class="chip">Your odds</span><span class="chip">One spin a day</span><span class="chip">Any phone</span></div>
+    </div>
     ${phone(shot('spin-win-phone-1'), 'left:700px;top:90px;width:250px;transform:rotate(-5deg)')}
     ${phone(shot('spin-win-phone-win'), 'left:975px;top:120px;width:250px;transform:rotate(5deg)')}
   `));
@@ -365,7 +374,7 @@ async function composeAll() {
     const d = deviceShot(p.id);
     jobs.push(() => compose(`codecanyon/${p.id}-inline.png`, 590, 300, `
       <div class="abs" style="inset:0;background:linear-gradient(135deg,${p.accent},${p.accent2})"></div>
-      <h1 class="abs display" style="left:28px;top:34px;width:300px;font-size:40px;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,.35)">${esc(p.title)}</h1>
+      <h1 class="abs display" style="left:28px;top:34px;width:270px;font-size:34px;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,.35)">${esc(p.title)}</h1>
       <p class="abs" style="left:30px;top:${p.title.length > 11 ? 150 : 106}px;width:280px;font-size:17px;font-weight:700;color:#fff">${esc(p.tagline)}</p>
       <p class="abs mono" style="left:30px;bottom:26px;font-size:13px;color:#fff">HTML5 · JAVASCRIPT · MOBILE READY</p>
       ${laptop(d.wide, 'left:320px;top:60px;width:250px')}

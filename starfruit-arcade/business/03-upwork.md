@@ -58,7 +58,7 @@ Images: `marketing/out/upwork/*-portfolio.png`. Link each item to the game on yo
 | Title | Role | Description (paste) |
 |---|---|---|
 | Promo Arcade: branded mini-games kit | Designer & developer | Three brandable mini-games (catch, memory, prize wheel) with coupon rewards, lead capture and a one-file rebrand. Mobile-first for QR codes and social links. |
-| Cosmic Merge: physics merge puzzle | Designer & developer | Drop-and-merge physics puzzle with custom circle physics, 11 procedural planets, combos and an evolution chain. Runs at 60 fps on phones. |
+| Cosmic Merge: physics merge puzzle | Designer & developer | Drop-and-merge physics puzzle with custom circle physics that stays stable with 60+ bodies, 11 procedural planets, combos and an evolution chain. |
 | Brick Blitz: neon brick-breaker | Designer & developer | Brick-breaker with 12 handcrafted levels, 8 power-ups, explosive chain reactions, level select and saved progress. |
 | Neon Stack: one-tap stacking game | Designer & developer | Isometric stacking game with neon synthwave art, perfect-drop combos and a cinematic camera finale. |
 
