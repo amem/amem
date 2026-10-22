@@ -1,0 +1,108 @@
+/* Perfect Match Quiz — question card, answers, progress, results. Colours come from config.js. */
+
+.qz-page .pa-stage {
+  background:
+    radial-gradient(40% 50% at 8% 15%, color-mix(in srgb, var(--c-secondary) 22%, transparent), transparent 70%),
+    radial-gradient(45% 55% at 95% 85%, color-mix(in srgb, var(--c-primary) 20%, transparent), transparent 70%),
+    radial-gradient(color-mix(in srgb, var(--c-primary) 14%, transparent) 1.4px, transparent 1.6px) 0 0 / 24px 24px,
+    var(--c-bg);
+}
+.qz-deco { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.qz-float { position: absolute; width: 64px; height: 64px; opacity: .55; filter: drop-shadow(0 8px 8px rgba(0, 0, 0, .12)); animation: pa-float 3.4s ease-in-out infinite; }
+.qz-float.f0 { left: 4%; top: 12%; }
+.qz-float.f1 { right: 5%; top: 18%; width: 78px; height: 78px; animation-delay: -1s; }
+.qz-float.f2 { left: 7%; bottom: 10%; width: 54px; height: 54px; animation-delay: -2s; }
+.qz-float.f3 { right: 8%; bottom: 14%; animation-delay: -.5s; }
+.qz-float.f4 { left: 18%; top: 48%; width: 44px; height: 44px; animation-delay: -1.6s; }
+.qz-float.f5 { right: 18%; top: 54%; width: 46px; height: 46px; animation-delay: -2.6s; }
+@media (max-width: 720px) { .qz-float.f4, .qz-float.f5 { display: none; } .qz-float { opacity: .3; } }
+
+.qz-wrap {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; gap: 12px;
+  padding: 16px 14px calc(16px + env(safe-area-inset-bottom)); overflow-y: auto;
+}
+.qz-top { width: min(680px, 100%); flex: none; }
+.qz-progress { height: 12px; border-radius: 999px; background: color-mix(in srgb, var(--c-primary) 14%, var(--c-surface)); overflow: hidden; box-shadow: inset 0 1px 2px rgba(0, 0, 0, .08); }
+.qz-bar {
+  display: block; height: 100%; width: 0; border-radius: inherit;
+  background: linear-gradient(90deg, var(--c-primary), var(--c-secondary));
+  transition: width .45s var(--ease-out);
+}
+.qz-meta { display: flex; align-items: center; gap: 8px; margin-top: 10px; min-height: 40px; }
+.qz-count { margin: 0 auto 0 0; font: 800 15px/1 var(--f-heading); color: var(--c-muted); }
+.qz-chip { min-height: 36px; font-size: 15px; }
+.qz-chip.is-urgent { background: #e5383b; color: #fff; }
+
+.qz-card {
+  position: relative; width: min(680px, 100%); margin: auto 0; padding: clamp(18px, 4vw, 30px);
+  border-radius: 30px; background: var(--c-surface); box-shadow: var(--shadow); text-align: center;
+}
+.qz-card.enter-right { animation: qz-in-right .38s var(--ease-out); }
+.qz-card.enter-left { animation: qz-in-left .38s var(--ease-out); }
+@keyframes qz-in-right { from { transform: translateX(40px) rotate(1.5deg); opacity: 0; } }
+@keyframes qz-in-left { from { transform: translateX(-40px) rotate(-1.5deg); opacity: 0; } }
+.qz-image { display: block; width: 100%; max-height: 180px; object-fit: cover; border-radius: 18px; margin-bottom: 14px; }
+.qz-question { margin: 0 0 18px; font: 800 clamp(22px, 5vw, 32px)/1.15 var(--f-heading); color: var(--c-deep); text-wrap: balance; }
+
+.qz-answers { display: grid; gap: 10px; }
+.qz-answers.has-pics { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (min-width: 760px) { .qz-answers.has-pics:not(.is-many) { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.qz-answer {
+  position: relative; display: flex; align-items: center; gap: 12px; min-height: 58px; padding: 10px 16px;
+  border: 2px solid var(--c-line); border-radius: 18px; background: var(--c-bg); color: var(--c-text);
+  font: 700 17px/1.25 var(--f-heading); text-align: left; cursor: pointer; touch-action: manipulation;
+  transition: transform .15s ease, border-color .15s ease, background-color .15s ease, box-shadow .15s ease;
+}
+.qz-answer:hover { border-color: var(--c-primary); transform: translateY(-2px); box-shadow: 0 8px 18px -12px var(--c-primary); }
+.qz-answer:active { transform: scale(.97); }
+.qz-answer img { width: 44px; height: 44px; flex: none; }
+.qz-key {
+  flex: none; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%;
+  background: var(--c-surface); box-shadow: inset 0 0 0 2px var(--c-line); font: 800 14px/1 var(--f-heading); color: var(--c-muted);
+}
+.qz-answers.has-pics .qz-answer { flex-direction: column; justify-content: center; text-align: center; gap: 8px; padding: 14px 10px; min-height: 130px; }
+.qz-answers.has-pics .qz-answer img { width: clamp(48px, 12vw, 64px); height: auto; aspect-ratio: 1; }
+.qz-answer.is-picked { border-color: var(--c-primary); background: var(--c-primary); color: var(--c-on-primary); animation: pa-pop .35s var(--ease-out); }
+.qz-answer.is-picked .qz-key { background: rgba(255, 255, 255, .2); color: inherit; box-shadow: none; }
+.qz-answer.is-right { border-color: #1f9d55; background: #1f9d55; color: #fff; }
+.qz-answer.is-wrong { border-color: #e5383b; background: #e5383b; color: #fff; animation: mm-shake .38s ease; }
+.qz-answer.is-answer { border-color: #1f9d55; box-shadow: 0 0 0 3px rgba(31, 157, 85, .35); }
+@keyframes mm-shake { 20% { transform: translateX(-7px); } 40% { transform: translateX(7px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(4px); } }
+
+.qz-explain { margin: 0; max-height: 0; overflow: hidden; font-size: 15px; line-height: 1.4; color: var(--c-text); transition: max-height .3s ease, margin .3s ease; }
+.qz-explain.is-on { max-height: 160px; margin-top: 14px; padding: 10px 14px; border-radius: 14px; }
+.qz-explain.is-ok { background: color-mix(in srgb, #1f9d55 12%, var(--c-surface)); }
+.qz-explain.is-bad { background: color-mix(in srgb, #e5383b 10%, var(--c-surface)); }
+.qz-back { flex: none; color: var(--c-muted); font-weight: 700; }
+
+/* Demo-mode result card (shown instead of the result overlay in ?demo=1). */
+.qz-demo {
+  position: absolute; left: 50%; top: 50%; z-index: 12; width: min(360px, 86%); padding: 26px 20px; border-radius: 30px;
+  background: var(--c-surface); box-shadow: 0 0 0 6px var(--c-accent), var(--shadow); text-align: center;
+  transform: translate(-50%, -50%) scale(.6); opacity: 0; pointer-events: none; transition: transform .4s var(--ease-out), opacity .25s ease;
+}
+.qz-demo.is-on { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+.qz-demo img { width: 96px; height: 96px; animation: pa-float 2.4s ease-in-out infinite; }
+.qz-demo-kicker { margin: 6px 0 0; font: 700 15px/1.2 var(--f-heading); color: var(--c-muted); }
+.qz-demo-title { margin: 4px 0 0; font: 800 30px/1.1 var(--f-heading); color: var(--c-primary); }
+.qz-demo-reward {
+  display: inline-block; margin: 12px 0 0; padding: 7px 14px; border-radius: 999px;
+  background: var(--c-accent); color: var(--c-on-accent); font: 800 16px/1 var(--f-heading);
+}
+
+/* Result overlay extras. */
+.qz-result-kicker { margin: 0 0 4px; font: 700 15px/1.2 var(--f-heading); color: var(--c-muted); }
+.qz-result-kicker:empty { display: none; }
+.qz-page .pa-over-heading { color: var(--c-primary); font-size: clamp(28px, 6vw, 36px); }
+.qz-result-product { margin: 6px 0 0; font-size: 15px; color: var(--c-text); }
+.qz-result-product span { color: var(--c-muted); }
+.qz-mix { margin: 14px auto 0; max-width: 340px; text-align: left; }
+.qz-mix-title { margin: 0 0 6px; font: 800 12px/1 var(--f-body); text-transform: uppercase; letter-spacing: .08em; color: var(--c-muted); }
+.qz-mix-row { display: grid; grid-template-columns: 1fr 1.1fr 40px; align-items: center; gap: 8px; margin-top: 6px; font-size: 13px; }
+.qz-mix-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.qz-mix-row.is-top .qz-mix-name { font-weight: 800; }
+.qz-mix-track { height: 8px; border-radius: 999px; background: var(--c-line); overflow: hidden; }
+.qz-mix-fill { display: block; height: 100%; width: var(--w); border-radius: inherit; background: linear-gradient(90deg, var(--c-primary), var(--c-secondary)); animation: qz-grow .8s var(--ease-out) both; animation-delay: calc(var(--i) * .12s + .3s); }
+@keyframes qz-grow { from { width: 0; } }
+.qz-mix-pct { text-align: right; font-variant-numeric: tabular-nums; color: var(--c-muted); }
+@media (max-height: 700px) { .qz-mix { display: none; } }

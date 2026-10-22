@@ -570,7 +570,8 @@
 
   /**
    * Renders the reward ticket (title, description, code + Copy) into `box`, with the
-   * lead-capture form when enabled. opts: { kicker (line above the title), demo }.
+   * lead-capture form when enabled. opts: { kicker (line above the title), extra (more lead
+   * fields, e.g. { result: 'Tropical Explorer' }), demo }.
    */
   PA.renderReward = function (box, reward, game, opts) {
     opts = opts || {};
@@ -610,7 +611,7 @@
       copyBtn.disabled = false;
     };
     if (lc.enabled && stored && !opts.demo && reward.code) {
-      PA.submitLead(extend({}, stored, { game: game, reward: reward.title || '', code: reward.code }));
+      PA.submitLead(extend({}, stored, { game: game, reward: reward.title || '', code: reward.code }, opts.extra));
     }
     if (!needForm || !reward.code) return;
 
@@ -658,7 +659,7 @@
       }
       data.consent = consent ? true : '';
       kitStore.set('lead', data);
-      PA.submitLead(extend({}, data, { game: game, reward: reward.title || '', code: reward.code }));
+      PA.submitLead(extend({}, data, { game: game, reward: reward.title || '', code: reward.code }, opts.extra));
       form.innerHTML = '<p class="pa-lead-done">' + esc(T.leadThanks) + '</p>';
       unlockCode();
       sfx.match(2);
@@ -827,7 +828,7 @@
       var rb = q('[data-over="reward"]');
       o.classList.toggle('has-reward', !!r.reward);
       if (r.reward) {
-        PA.renderReward(rb, r.reward, id, { kicker: r.kicker });
+        PA.renderReward(rb, r.reward, id, { kicker: r.kicker, extra: r.leadExtra });
       } else {
         rb.innerHTML = r.nextText ? '<p class="pa-next">' + esc(r.nextText) + '</p>' : '';
       }

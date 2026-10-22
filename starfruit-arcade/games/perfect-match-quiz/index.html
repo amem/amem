@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#2b1a5c">
+<meta name="description" content="Take the quiz and find your perfect match.">
+<title>Quiz</title>
+<link rel="stylesheet" href="shared/ui.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="pa-game qz-page" data-screen="title">
+
+<header class="pa-top">
+  <span></span>
+  <div class="pa-logo" data-brand-logo></div>
+  <div class="pa-top-actions">
+    <button type="button" class="icon-btn" data-action="sound" aria-label="Sound on or off">
+      <svg class="i-sound-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="i-sound-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M17 9.5l5 5M22 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <button type="button" class="icon-btn pa-pause-btn" data-action="pause" aria-label="Pause">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.2" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1.2" fill="currentColor"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="pa-stage" id="stage">
+  <div class="qz-deco" data-deco aria-hidden="true"></div>
+  <div class="qz-wrap">
+    <div class="qz-top">
+      <div class="qz-progress" aria-hidden="true"><span class="qz-bar" id="qz-bar"></span></div>
+      <div class="qz-meta">
+        <p class="qz-count" id="qz-count" aria-live="polite"></p>
+        <span class="pa-chip qz-chip" id="qz-score" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>0 / 0</span>
+        </span>
+        <span class="pa-chip qz-chip" id="qz-timer" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M12 9v4.5l3 2M9.5 2.5h5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <span>0</span>
+        </span>
+      </div>
+    </div>
+    <article class="qz-card" id="qz-card">
+      <img class="qz-image" id="qz-image" src="data:," alt="" hidden>
+      <h1 class="qz-question" id="qz-question"></h1>
+      <div class="qz-answers" id="qz-answers"></div>
+      <p class="qz-explain" id="qz-explain" aria-live="polite"></p>
+    </article>
+    <button type="button" class="btn-link qz-back" id="qz-back" data-action="back" hidden>
+      <span aria-hidden="true">←</span> <span data-t="back">Back</span>
+    </button>
+  </div>
+  <div class="qz-demo" id="qz-demo" aria-hidden="true"></div>
+  <p class="pa-hint" id="pa-hint"></p>
+
+  <section class="pa-screen pa-screen-title" id="screen-title" aria-labelledby="game-title">
+    <div class="pa-panel pa-panel-title">
+      <div class="pa-title-art" data-title-art aria-hidden="true"></div>
+      <h2 class="pa-game-title" id="game-title" data-game-title>Quiz</h2>
+      <p class="pa-howto" data-quiz="subtitle"></p>
+      <p class="pa-teaser">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h16v10H4zM2.5 6.5h19V10h-19zM12 6.5V20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 6.5C10 2.5 6 2.5 6.5 5S12 6.5 12 6.5s5.5 1 5.5-1.5-4-2.5-5.5 1.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        <span data-reward-teaser></span>
+      </p>
+      <div>
+        <button type="button" class="btn btn-primary btn-xl" data-action="play" data-autofocus>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+          <span data-t="play">Play</span>
+        </button>
+      </div>
+      <p class="pa-meta">
+        <button type="button" class="btn-link" data-action="sound"><span data-t="sound">Sound</span>: <span data-sound-label>On</span></button>
+      </p>
+      <p class="pa-legal" data-brand="legal"></p>
+    </div>
+    <p class="pa-credit" data-brand="credit"></p>
+  </section>
+
+  <section class="pa-screen" id="screen-pause" aria-labelledby="pause-title">
+    <div class="pa-panel pa-panel-compact">
+      <h2 id="pause-title" data-t="paused">Paused</h2>
+      <div class="pa-stack">
+        <button type="button" class="btn btn-primary btn-block" data-action="resume" data-autofocus>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+          <span data-t="resume">Resume</span>
+        </button>
+        <button type="button" class="btn btn-ghost btn-block" data-action="restart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12a7 7 0 1 0 2.1-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M4 4v5h5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span data-t="restart">Restart</span>
+        </button>
+        <div class="pa-row">
+          <button type="button" class="btn btn-ghost" data-action="sound">
+            <svg class="i-sound-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg class="i-sound-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M17 9.5l5 5M22 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <span data-sound-label>On</span>
+          </button>
+          <button type="button" class="btn btn-ghost" data-action="home">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5V20h-5.5v-5h-5v5H4z" fill="currentColor"/></svg>
+            <span data-t="home">Home</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pa-screen" id="screen-over" aria-labelledby="over-heading">
+    <div class="pa-panel pa-panel-over">
+      <div class="pa-over-main">
+        <div class="pa-over-art" data-over="art" hidden></div>
+        <p class="qz-result-kicker" id="qz-result-kicker"></p>
+        <h2 class="pa-over-heading" id="over-heading" data-over="heading">Result</h2>
+        <p class="qz-result-product" id="qz-result-product" hidden></p>
+        <p class="pa-over-sub" data-over="sub" hidden></p>
+        <div class="pa-stars" data-over="stars" hidden></div>
+        <p class="pa-over-score" data-over="score" hidden>0</p>
+        <p class="pa-badge" data-over="newbest" data-t="newBest" hidden>New best!</p>
+        <p class="pa-stats" data-over="stats"></p>
+        <div class="qz-mix" id="qz-mix" hidden></div>
+      </div>
+      <div class="pa-over-reward" data-over="reward"></div>
+      <div class="pa-over-actions">
+        <a class="btn btn-accent btn-block" data-cta hidden></a>
+        <button type="button" class="btn btn-primary btn-block" data-action="restart" data-autofocus>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12a7 7 0 1 0 2.1-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M4 4v5h5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span data-over="again">Play again</span>
+        </button>
+        <button type="button" class="btn btn-secondary btn-block" id="qz-save" data-action="card" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3.5" width="16" height="17" rx="3" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="9.5" cy="9" r="2" fill="currentColor"/><path d="M5 18l5-5 3 3 2.5-2.5L20 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
+          <span data-t="saveCard">Save my result</span>
+        </button>
+        <div class="pa-row">
+          <button type="button" class="btn btn-ghost" data-action="home">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5V20h-5.5v-5h-5v5H4z" fill="currentColor"/></svg>
+            <span data-t="home">Home</span>
+          </button>
+          <button type="button" class="btn btn-ghost" data-action="share">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2.6" fill="currentColor"/><circle cx="18" cy="6" r="2.6" fill="currentColor"/><circle cx="18" cy="18" r="2.6" fill="currentColor"/><path d="M8.3 10.8l7.4-3.6M8.3 13.2l7.4 3.6" stroke="currentColor" stroke-width="2"/></svg>
+            <span data-t="share">Share</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="config.js"></script>
+<script src="shared/icons.js"></script>
+<script src="shared/brand.js"></script>
+<script src="js/quiz.js"></script>
+</body>
+</html>

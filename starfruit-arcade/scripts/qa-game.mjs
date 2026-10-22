@@ -162,6 +162,12 @@ async function runViewport(browser, name, serverUrl) {
   s = await getState(page);
   notes.push(`[${name}] after ${PLAY_SECONDS}s random play: ${JSON.stringify(s)}`);
   await shot('2-playing');
+  // Short games (a quiz, one scratch card) can end during random play, and a random tap may
+  // then press "Home". That is valid behaviour: start a new round before forcing game over.
+  if (s && s.screen === 'title') {
+    await press(page, '[data-action="play"]', mobile);
+    await page.waitForTimeout(500);
+  }
 
   const canForce = await page.evaluate(() => !!(window.__GAME__ && window.__GAME__.forceGameOver));
   if (!canForce) issue(name, 'window.__GAME__.forceGameOver() missing');
