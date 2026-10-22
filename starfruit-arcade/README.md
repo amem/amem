@@ -66,7 +66,8 @@ for z in ~/Downloads/0*-*.zip; do unzip -oq "$z" -d ~/Documents/"Starfruit Arcad
 ```
 
 The `starfruit-arcade-complete-workspace.zip` contains this whole folder (tools included) if
-you want to keep building on your computer.
+you want to keep building on your computer; raw captures and trailers are in
+`07-marketing-assets.zip`, or regenerate them with `npm run assets`.
 
 ## Licenses
 

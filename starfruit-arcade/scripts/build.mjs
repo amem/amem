@@ -154,8 +154,11 @@ zip('laptop/08-release-files.zip', [
   ...collect(path.join(DIST, 'source'), '08-release-files/source-code-for-sale'),
 ]);
 const EXCLUDE_TOP = new Set(['node_modules', 'dist', '.qa']);
+// Raw captures and trailers are already in 07-marketing-assets; keep the workspace zip light.
+const HEAVY = ['marketing/out/screenshots', 'marketing/out/video'];
 folderZip('starfruit-arcade-complete-workspace', ROOT, (rel) => {
   const top = rel.split('/')[0];
+  if (HEAVY.some((h) => rel === h || rel.startsWith(h + '/'))) return false;
   return !EXCLUDE_TOP.has(top) && (skipHidden(rel) || rel.startsWith('.github') || rel === '.gitignore');
 });
 
