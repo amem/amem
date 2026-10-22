@@ -15,6 +15,7 @@
 //   brand/        studio logo 800×800
 //   video/        20-second trailers, landscape 1280×720 and portrait 720×1280 (.webm)
 import { chromium } from 'playwright';
+import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -89,13 +90,8 @@ async function captureHub() {
     await page.screenshot({ path: path.join(SHOTS, `promo-hub-${view}.png`) });
     await ctx.close();
   }
-  // Card image for Promo Arcade = the hub page.
-  const ctx = await browser.newContext(VIEWS.card);
-  const page = await ctx.newPage();
-  await page.goto(`${server.url}/games/promo-arcade/index.html`, { waitUntil: 'load' });
-  await sleep(2000);
-  await page.screenshot({ path: path.join(SHOTS, 'promo-arcade-card-1.png') });
-  await ctx.close();
+  // Card image for Promo Arcade = Spin & Win mid-game (reads better than the hub at card size).
+  fs.copyFileSync(path.join(SHOTS, 'spin-win-card-1.png'), path.join(SHOTS, 'promo-arcade-card-1.png'));
   console.log('  captured promo hub');
 }
 
@@ -115,8 +111,15 @@ async function recordTrailers() {
     await sleep(20000);
     const video = page.video();
     await ctx.close();
-    fs.copyFileSync(await video.path(), path.join(VIDEO, `${key}-trailer-${shape}.webm`));
+    const webm = path.join(VIDEO, `${key}-trailer-${shape}.webm`);
+    fs.copyFileSync(await video.path(), webm);
     fs.rmSync(dir, { recursive: true, force: true });
+    // MP4 (H.264) plays everywhere: Fiverr, Instagram, TikTok, YouTube. Needs ffmpeg on PATH.
+    const mp4 = webm.replace(/\.webm$/, '.mp4');
+    const r = spawnSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', '1', '-i', webm, '-c:v', 'libx264', '-pix_fmt', 'yuv420p',
+      '-crf', '24', '-preset', 'slow', '-movflags', '+faststart', '-an', mp4]);
+    if (r.status === 0) fs.rmSync(webm);
+    else console.warn(`  ⚠ ffmpeg not available, kept ${path.basename(webm)}`);
     console.log(`  recorded ${key} (${shape})`);
   });
 }
@@ -188,8 +191,10 @@ async function composeAll() {
     jobs.push(() => compose(`itch/${p.id}-cover.png`, 630, 500, `
       <img class="abs" src="${shot(`${p.id}-card-1`)}" style="inset:0;width:630px;height:500px;object-fit:cover">
       <div class="abs" style="inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.82) 100%)"></div>
-      <h1 class="abs display" style="left:32px;bottom:78px;font-size:58px;color:#fff;text-shadow:0 4px 24px rgba(0,0,0,.5)">${esc(p.title)}</h1>
-      <p class="abs" style="left:34px;bottom:36px;font-size:24px;font-weight:700;color:${p.accent === '#ff7a18' ? '#ffd29a' : '#fff'}">${esc(p.tagline)}</p>
+      <div class="abs" style="left:32px;right:32px;bottom:34px">
+        <h1 class="display" style="font-size:58px;color:#fff;text-shadow:0 4px 24px rgba(0,0,0,.5)">${esc(p.title)}</h1>
+        <p style="margin-top:12px;font-size:24px;line-height:1.25;font-weight:700;color:${p.accent === '#ff7a18' ? '#ffd29a' : '#fff'}">${esc(p.tagline)}</p>
+      </div>
     `));
   }
 
@@ -259,7 +264,7 @@ async function composeAll() {
   // Gig 1 — branded mini-game
   jobs.push(() => compose('fiverr/gig1-branded-game-1.png', W, H, `
     <div class="abs" style="inset:0;background:var(--star)"></div>
-    <h1 class="abs display" style="left:64px;top:92px;width:600px;font-size:92px">Your brand. Your game.</h1>
+    <h1 class="abs display" style="left:64px;top:110px;width:640px;font-size:70px">Your brand.<br>Your game.</h1>
     <p class="abs" style="left:66px;top:352px;width:560px;font-size:32px;font-weight:700;line-height:1.3">Branded mini-games for shops, cafés, events and campaigns</p>
     <div class="abs chips" style="left:66px;top:520px;width:560px;color:var(--ink)"><span class="chip">Coupon rewards</span><span class="chip">Lead capture</span><span class="chip">Any phone</span></div>
     ${phone(shot('memory-match-phone-1'), 'left:690px;top:120px;width:230px;transform:rotate(-7deg)')}
@@ -271,7 +276,7 @@ async function composeAll() {
     <h1 class="abs display" style="left:64px;top:56px;font-size:60px;color:var(--star)">3 games. 1 brand file.</h1>
     ${[['catch-rush', 'Catch Rush'], ['memory-match', 'Memory Match'], ['spin-win', 'Spin &amp; Win']].map(([k, label], i) => `
       ${phone(shot(`${k}-phone-1`), `left:${120 + i * 370}px;top:170px;width:250px`)}
-      <p class="abs display" style="left:${120 + i * 370}px;top:${170 + 541 + 14}px;width:250px;text-align:center;font-size:26px;color:#fff">${label}</p>`).join('')}
+      <p class="abs display" style="left:${90 + i * 370}px;top:${170 + 541 + 14}px;width:310px;text-align:center;font-size:24px;color:#fff">${label}</p>`).join('')}
   `, '.phone{box-shadow:0 0 0 2px #3a4a41}'));
   jobs.push(() => compose('fiverr/gig1-branded-game-3.png', W, H, `
     <div class="abs" style="inset:0;background:var(--paper)"></div>
@@ -331,6 +336,29 @@ async function composeAll() {
     <h1 class="abs display" style="left:64px;top:56px;font-size:58px;color:var(--star)">How it works</h1>
     <div class="abs" style="left:64px;right:64px;top:180px;color:#fff">${steps('#f4c22b').replace(/Send your logo, colours and goal/, 'Share your code and the problem').replace(/Play it on your phone within 48 hours/, 'Fixed price and plan in 24 hours').replace(/Revisions until it feels right/, 'Fix, test on phone and desktop').replace(/Files, source code and hosting help/, 'Clean code and a short report')}</div>
     ${laptop(shot('neon-stack-desktop-1'), 'left:330px;top:470px;width:620px')}
+  `));
+
+  // Gig 4 — prize wheel
+  jobs.push(() => compose('fiverr/gig4-spin-wheel-1.png', W, H, `
+    <div class="abs" style="inset:0;background:var(--coral)"></div>
+    <h1 class="abs display" style="left:64px;top:84px;width:640px;font-size:80px;color:#fff">Spin-the-wheel for your business</h1>
+    <p class="abs" style="left:66px;top:420px;width:560px;font-size:30px;font-weight:700;line-height:1.3;color:#fff">Your prizes, your odds, your coupon codes</p>
+    <div class="abs chips" style="left:66px;top:540px;width:600px;color:#fff"><span class="chip">QR code ready</span><span class="chip">Lead capture</span><span class="chip">1 spin a day</span></div>
+    ${phone(shot('spin-win-phone-1'), 'left:740px;top:80px;width:270px;transform:rotate(-5deg)')}
+    ${phone(shot('spin-win-phone-2'), 'left:1000px;top:150px;width:230px;transform:rotate(6deg)')}
+  `));
+  jobs.push(() => compose('fiverr/gig4-spin-wheel-2.png', W, H, `
+    <div class="abs" style="inset:0;background:var(--paper)"></div>
+    <h1 class="abs display" style="left:64px;top:70px;font-size:58px">What you get</h1>
+    <div class="abs" style="left:64px;top:190px;width:600px">${checklist(['Your logo, colours and prizes', 'Exact odds for every prize', 'Coupon code with a Copy button', 'Optional email / phone capture', 'Spins-per-day limit', 'Link, QR code or website embed'], '#e8503f')}</div>
+    ${laptop(shot('spin-win-desktop-1'), 'left:690px;top:230px;width:540px')}
+  `));
+  jobs.push(() => compose('fiverr/gig4-spin-wheel-3.png', W, H, `
+    <div class="abs" style="inset:0;background:var(--ink);color:#fff"></div>
+    <h1 class="abs display" style="left:64px;top:56px;font-size:58px;color:var(--star)">How it works</h1>
+    <div class="abs" style="left:64px;right:64px;top:180px;color:#fff">${steps('#e8503f').replace(/Send your logo, colours and goal/, 'Send your logo, colours and prizes').replace(/Play it on your phone within 48 hours/, 'Spin it on your phone within 24 hours').replace(/Files, source code and hosting help/, 'Link, QR code and embed code')}</div>
+    ${phone(shot('spin-win-phone-1'), 'left:520px;top:415px;width:150px;transform:rotate(-4deg)')}
+    ${phone(shot('catch-rush-phone-1'), 'left:690px;top:425px;width:150px;transform:rotate(4deg)')}
   `));
 
   // ---- Studio logo (avatar for itch.io / Gumroad)
