@@ -16,7 +16,7 @@ the counter, embed it on a website or run it on a kiosk tablet.
 - **Lead capture** (optional): name / email / phone with a consent checkbox, posted to any
   webhook (Google Apps Script, Zapier, Make, your own server). Can be required to reveal the code.
 - **Spins per day** limit for the wheel, stored on the device.
-- **22 built-in flat icons** (fruit, café, food, retail, gifts) that look the same on every
+- **28 built-in flat icons** (fruit, café, food, retail, gifts, seasonal) that look the same on every
   phone, or use your own product photos or emoji.
 - Hub page with animated game previews and a rewards list.
 - Juicy feel: confetti, particles, combos, chasing LED lights, a ticking wheel flapper,
@@ -92,7 +92,8 @@ products: [
 ```
 
 Built-in icons: `strawberry pineapple mango banana kiwi watermelon coconut blueberry coffee
-donut cupcake icecream pizza burger gift bag heart diamond star bomb rotten cup`.
+donut cupcake icecream pizza burger gift bag heart diamond tree snowflake candycane bell moon
+cookie star bomb rotten cup`.
 Your own pictures should be square PNG / WebP / SVG with a transparent background, around
 256 × 256 px. `color` is used for the juice splash and the card outline.
 

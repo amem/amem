@@ -352,7 +352,9 @@
     lose: function () {
       play(function (t) { [7, 4, 0].forEach(function (s, i) { tone(note(s - 5), t + i * 0.13, 0.22, { gain: 0.18 }); }); });
     },
-    copy: function () { play(function (t) { tone(988, t, 0.06, { gain: 0.15 }); tone(1319, t + 0.06, 0.09, { gain: 0.15 }); }); }
+    copy: function () { play(function (t) { tone(988, t, 0.06, { gain: 0.15 }); tone(1319, t + 0.06, 0.09, { gain: 0.15 }); }); },
+    scratch: function () { play(function (t) { noise(t, 0.07, { filter: 'highpass', freq: 2600 + Math.random() * 1800, gain: 0.1 }); }); },
+    open: function () { play(function (t) { tone(392, t, 0.12, { gain: 0.16, slide: 523 }); noise(t, 0.12, { freq: 900, q: 0.7, gain: 0.12 }); }); }
   };
   function setMuted(m) {
     muted = !!m;
@@ -568,7 +570,7 @@
 
   /**
    * Renders the reward ticket (title, description, code + Copy) into `box`, with the
-   * lead-capture form when enabled. `opts.demo` skips sending stored leads again.
+   * lead-capture form when enabled. opts: { kicker (line above the title), demo }.
    */
   PA.renderReward = function (box, reward, game, opts) {
     opts = opts || {};
@@ -578,7 +580,7 @@
     var locked = needForm && !!lc.required;
     box.innerHTML =
       '<div class="pa-ticket">' +
-        '<p class="pa-ticket-kicker">' + esc(T.youWon) + '</p>' +
+        '<p class="pa-ticket-kicker">' + esc(opts.kicker || T.youWon) + '</p>' +
         '<p class="pa-ticket-title">' + esc(reward.title || reward.label || '') + '</p>' +
         (reward.description ? '<p class="pa-ticket-desc">' + esc(reward.description) + '</p>' : '') +
         (reward.code ?
@@ -825,7 +827,7 @@
       var rb = q('[data-over="reward"]');
       o.classList.toggle('has-reward', !!r.reward);
       if (r.reward) {
-        PA.renderReward(rb, r.reward, id);
+        PA.renderReward(rb, r.reward, id, { kicker: r.kicker });
       } else {
         rb.innerHTML = r.nextText ? '<p class="pa-next">' + esc(r.nextText) + '</p>' : '';
       }

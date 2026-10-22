@@ -1,0 +1,162 @@
+/* Daily Doors — calendar, doors, scratch card and Scratch & Win page. Colours come from config.js. */
+
+/* ------------------------------------------------------------------ stage */
+.dd-page .pa-stage, .sw-page .pa-stage {
+  background:
+    radial-gradient(70% 60% at 50% 0%, color-mix(in srgb, var(--c-secondary) 40%, transparent), transparent 70%),
+    radial-gradient(circle at 50% 120%, color-mix(in srgb, var(--c-primary) 30%, transparent), transparent 55%),
+    var(--c-deep);
+}
+.dd-fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.dd-wrap {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+  padding: 14px 12px calc(14px + env(safe-area-inset-bottom));
+}
+.dd-head { text-align: center; color: var(--c-on-deep); flex: none; }
+.dd-title {
+  margin: 0; font: 800 clamp(26px, 5vw, 40px)/1.05 var(--f-heading); letter-spacing: -.01em;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, .25);
+}
+.dd-title::after {
+  content: ""; display: block; width: 64px; height: 5px; margin: 8px auto 0; border-radius: 99px;
+  background: var(--c-accent);
+}
+.dd-sub { margin: 6px 0 0; font-size: 14px; opacity: .85; }
+.dd-next {
+  display: inline-flex; align-items: center; gap: 6px; margin: 8px 0 0; padding: 6px 14px; border-radius: 999px;
+  background: rgba(255, 255, 255, .12); font: 800 14px/1.2 var(--f-heading); font-variant-numeric: tabular-nums;
+}
+.dd-area { position: relative; flex: 1; width: 100%; min-height: 0; margin-top: 12px; display: grid; place-items: center; }
+@media (max-height: 560px) { .dd-sub { display: none; } }
+
+/* ------------------------------------------------------------------ doors */
+.dd-board { display: grid; grid-template-columns: repeat(var(--cols, 6), var(--cw, 80px)); grid-auto-rows: var(--ch, 92px); gap: var(--gap, 10px); }
+.dd-door {
+  position: relative; padding: 0; border: 0; border-radius: 14px; background: none; color: #fff;
+  cursor: pointer; perspective: 700px; touch-action: manipulation;
+}
+.dd-door:focus-visible { outline-offset: 4px; }
+.dd-inner { position: absolute; inset: 0; border-radius: inherit; }
+.dd-inside {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  border-radius: inherit; padding: 6px; background: var(--c-surface); color: var(--c-text);
+  box-shadow: inset 0 6px 14px rgba(0, 0, 0, .18), inset 0 0 0 3px color-mix(in srgb, var(--door) 45%, transparent);
+}
+.dd-inside img { width: 58%; max-width: 64px; aspect-ratio: 1; object-fit: contain; }
+.dd-inside-title {
+  font: 800 clamp(9px, calc(var(--cw, 80px) * .11), 13px)/1.1 var(--f-heading); text-align: center;
+  max-width: 100%; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+}
+.dd-board.is-small .dd-inside-title { display: none; }
+.dd-leaf {
+  position: absolute; inset: 0; display: grid; place-items: center; border-radius: inherit;
+  background-color: var(--door);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .28), 0 5px 0 color-mix(in srgb, var(--door) 70%, #000), 0 12px 18px -10px rgba(0, 0, 0, .55);
+  transform-origin: left center; transition: transform .7s cubic-bezier(.3, 1.2, .5, 1), filter .2s ease;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+}
+.dd-leaf.pat-stripes { background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, .16) 0 7px, transparent 7px 15px); }
+.dd-leaf.pat-dots { background-image: radial-gradient(rgba(255, 255, 255, .26) 2.2px, transparent 2.6px); background-size: 13px 13px; }
+.dd-leaf.pat-zig {
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, .15) 25%, transparent 25%), linear-gradient(225deg, rgba(255, 255, 255, .15) 25%, transparent 25%);
+  background-size: 16px 16px;
+}
+.dd-leaf.pat-plaid {
+  background-image: repeating-linear-gradient(0deg, rgba(255, 255, 255, .13) 0 4px, transparent 4px 14px), repeating-linear-gradient(90deg, rgba(255, 255, 255, .13) 0 4px, transparent 4px 14px);
+}
+.dd-leaf.has-ribbon::before, .dd-leaf.has-ribbon::after { content: ""; position: absolute; background: var(--c-accent); opacity: .92; }
+.dd-leaf.has-ribbon::before { left: 0; right: 0; top: 50%; height: 14%; transform: translateY(-50%); }
+.dd-leaf.has-ribbon::after { top: 0; bottom: 0; left: 50%; width: 14%; transform: translateX(-50%); }
+.dd-num {
+  position: relative; z-index: 1; font: 800 clamp(20px, calc(var(--cw, 80px) * .42), 52px)/1 var(--f-heading);
+  text-shadow: 0 3px 0 rgba(0, 0, 0, .28);
+}
+.dd-tag {
+  position: absolute; z-index: 1; top: -9px; left: 50%; transform: translateX(-50%) rotate(-4deg); display: none;
+  padding: 3px 8px; border-radius: 999px; background: var(--c-accent); color: var(--c-on-accent);
+  font: 800 11px/1 var(--f-heading); text-transform: uppercase; letter-spacing: .06em; white-space: nowrap;
+  box-shadow: 0 2px 0 var(--c-accent-dark);
+}
+.dd-lock { position: absolute; z-index: 1; right: 6px; bottom: 6px; width: 16px; height: 16px; opacity: .75; display: none; }
+
+.dd-door.is-locked .dd-leaf { filter: saturate(.65) brightness(.82); }
+.dd-door.is-locked .dd-lock { display: block; }
+.dd-door.is-today .dd-tag { display: block; }
+.dd-door.is-today .dd-leaf { animation: dd-glow 1.6s ease-in-out infinite; }
+.dd-door.is-today { z-index: 2; animation: dd-bob 1.6s ease-in-out infinite; }
+.dd-door.is-ready .dd-leaf::after { content: ""; position: absolute; top: 6px; right: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--c-accent); box-shadow: 0 0 0 3px rgba(255, 255, 255, .5); }
+.dd-door.is-ready .dd-leaf.has-ribbon::after { top: 0; right: auto; width: 14%; height: auto; border-radius: 0; box-shadow: none; }
+.dd-door.is-open .dd-leaf { transform: rotateY(-112deg); filter: brightness(.85); }
+.dd-door:not(.is-open):not(.is-locked):hover .dd-leaf { transform: rotateY(-14deg); }
+.dd-door.is-shake { animation: dd-shake .4s ease; }
+.dd-board.is-dealt .dd-door { animation: dd-deal .5s var(--ease-out) both; animation-delay: var(--d, 0s); }
+@keyframes dd-glow {
+  50% { box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .28), 0 5px 0 color-mix(in srgb, var(--door) 70%, #000), 0 0 0 5px var(--c-accent), 0 0 26px 6px color-mix(in srgb, var(--c-accent) 70%, transparent); }
+}
+@keyframes dd-bob { 50% { transform: translateY(-4px); } }
+@keyframes dd-shake { 20% { transform: translateX(-6px) rotate(-3deg); } 40% { transform: translateX(6px) rotate(3deg); } 60% { transform: translateX(-3px); } 80% { transform: translateX(3px); } }
+@keyframes dd-deal { from { transform: translateY(26px) scale(.6); opacity: 0; } }
+
+/* ------------------------------------------------------------------ door modal + scratch card */
+.dd-modal {
+  position: absolute; inset: 0; z-index: 15; display: grid; place-items: center; padding: 16px;
+  background: color-mix(in srgb, var(--c-deep-2) 70%, transparent);
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  opacity: 0; visibility: hidden; transition: opacity .2s ease, visibility 0s linear .2s;
+}
+.dd-modal.is-on { opacity: 1; visibility: visible; transition: opacity .2s ease; }
+.dd-card {
+  position: relative; width: min(380px, 100%); padding: 20px 20px 14px; border-radius: 26px; text-align: center;
+  background: var(--c-surface); color: var(--c-text); box-shadow: var(--shadow);
+  transform: scale(.9) translateY(10px); transition: transform .3s var(--ease-out);
+}
+.dd-modal.is-on .dd-card { transform: none; }
+.dd-card-kicker { margin: 0 0 12px; font: 800 20px/1.1 var(--f-heading); color: var(--c-deep); }
+.dd-card-hint { margin: 10px 0 0; font-size: 13px; color: var(--c-muted); }
+.dd-card .btn-link { color: var(--c-primary-dark); font-weight: 700; }
+.dd-close {
+  position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; display: grid; place-items: center;
+  border: 0; border-radius: 50%; background: var(--c-bg); color: var(--c-text); cursor: pointer;
+}
+.dd-close svg { width: 20px; height: 20px; }
+.dd-scratch, .sw-scratch {
+  position: relative; overflow: hidden; border-radius: 18px; aspect-ratio: 4 / 3; touch-action: none;
+  background: radial-gradient(circle at 50% 35%, var(--c-surface), var(--c-primary-soft));
+  box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--c-primary) 35%, transparent);
+}
+.dd-prize, .sw-prize {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 12px;
+}
+.dd-prize img, .sw-prize img { width: 32%; max-width: 110px; aspect-ratio: 1; object-fit: contain; filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .18)); }
+.dd-prize-title, .sw-prize-title { margin: 0; font: 800 clamp(20px, 6vw, 28px)/1.05 var(--f-heading); color: var(--c-primary); }
+.dd-prize-desc, .sw-prize-desc { margin: 0; font-size: 13px; color: var(--c-muted); }
+.sc-foil, .sc-dust { position: absolute; inset: 0; width: 100%; height: 100%; }
+.sc-foil { cursor: grab; touch-action: none; transition: opacity .5s ease; }
+.sc-foil:active { cursor: grabbing; }
+.sc-foil.is-gone { opacity: 0; pointer-events: none; }
+.sc-dust { pointer-events: none; }
+
+/* ------------------------------------------------------------------ Scratch & Win page */
+.sw-area { position: absolute; inset: 0; display: grid; place-items: center; padding: 70px 14px calc(16px + env(safe-area-inset-bottom)); }
+.sw-ticket {
+  position: relative; width: min(360px, 100%); padding: 18px 18px 16px; border-radius: 28px; text-align: center;
+  background: var(--c-surface); box-shadow: 0 0 0 6px color-mix(in srgb, var(--c-accent) 85%, transparent), var(--shadow);
+}
+.sw-ticket::before, .sw-ticket::after {
+  content: ""; position: absolute; top: 96px; width: 22px; height: 22px; border-radius: 50%; background: var(--c-deep);
+}
+.sw-ticket::before { left: -11px; }
+.sw-ticket::after { right: -11px; }
+.sw-ticket-head { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 4px; }
+.sw-ticket-title { margin: 0; font: 800 clamp(26px, 7vw, 34px)/1 var(--f-heading); color: var(--c-primary); letter-spacing: -.01em; }
+.sw-ticket-sub { margin: 4px 0 14px; font-size: 14px; color: var(--c-muted); }
+.sw-ticket .sw-scratch { aspect-ratio: 1 / 1; }
+.sw-ticket .btn-link { margin-top: 6px; color: var(--c-primary-dark); font-weight: 700; }
+.sw-status { position: absolute; top: 12px; left: 0; right: 0; text-align: center; pointer-events: none; }
+.sw-status .pa-chip { background: var(--c-surface); }
+@media (max-height: 640px) {
+  .sw-ticket .sw-scratch { aspect-ratio: 4 / 3; }
+  .sw-ticket::before, .sw-ticket::after { display: none; }
+}
+.sw-ticket.is-empty .sw-scratch, .sw-ticket.is-empty .btn-link { display: none; }
+.sw-empty { margin: 8px 0 4px; font: 800 18px/1.3 var(--f-heading); color: var(--c-deep); }

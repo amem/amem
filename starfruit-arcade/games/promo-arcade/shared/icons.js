@@ -166,6 +166,46 @@
       '<path d="M17 11 6 26h17zM47 11l11 15H41z" fill="#86e1f8"/>' +
       '<path d="M20 14l-5 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" opacity=".8"/>',
 
+    // ---- Seasonal (calendars and campaigns) ----
+    tree:
+      '<path d="M32 7 43 21h-5l11 14h-6l12 16H9l12-16h-6l11-14h-5z" fill="#1f9d55"/>' +
+      '<path d="M32 7 43 21h-5l11 14h-6l12 16H32z" fill="#17804a" opacity=".55"/>' +
+      '<rect x="27.5" y="51" width="9" height="9" rx="2" fill="#8a5a2b"/>' +
+      '<path d="M32 2.5l2 4.3 4.6.6-3.4 3.2.9 4.6L32 13l-4.1 2.2.9-4.6-3.4-3.2 4.6-.6z" fill="#ffc928"/>' +
+      '<g><circle cx="27" cy="25" r="2.6" fill="#e5383b"/><circle cx="38" cy="33" r="2.6" fill="#ffc928"/><circle cx="24" cy="40" r="2.6" fill="#4fb3e8"/><circle cx="35" cy="45" r="2.6" fill="#e5383b"/><circle cx="44" cy="46" r="2.2" fill="#fff"/><circle cx="20" cy="47" r="2.2" fill="#ffc928"/></g>' +
+      '<path d="M24 33c5 2.5 11 2.5 18-1M18 44c8 3 18 3 28-1" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".55"/>',
+
+    snowflake:
+      '<g stroke="#4fb3e8" stroke-width="4" stroke-linecap="round" fill="none">' +
+      [0, 60, 120].map(function (a) {
+        return '<g transform="rotate(' + a + ' 32 32)"><path d="M32 6v52"/><path d="M32 15l-6-6M32 15l6-6M32 49l-6 6M32 49l6 6"/></g>';
+      }).join('') +
+      '</g><circle cx="32" cy="32" r="5" fill="#bfe6fb"/>',
+
+    candycane:
+      '<path d="M26 58V22a10 10 0 0 1 20 0v5" fill="none" stroke="#d9d9d9" stroke-width="12" stroke-linecap="round"/>' +
+      '<path d="M26 58V22a10 10 0 0 1 20 0v5" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/>' +
+      '<path d="M26 58V22a10 10 0 0 1 20 0v5" fill="none" stroke="#e5383b" stroke-width="9" stroke-dasharray="4.5 6"/>' +
+      '<path d="M23.5 50V22a12 12 0 0 1 6-10.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".6"/>',
+
+    bell:
+      '<path d="M32 10c-10 0-16 8-16 18v12l-5 7h42l-5-7V28c0-10-6-18-16-18z" fill="#ffc928"/>' +
+      '<path d="M48 40V28c0-10-6-18-16-18 6 3 9 10 9 18v12l4 7h8z" fill="#e8a600" opacity=".7"/>' +
+      '<circle cx="32" cy="51" r="5" fill="#c47f00"/>' +
+      '<path d="M32 10c-3-5-11-6-12-1s9 4 12 1zM32 10c3-5 11-6 12-1s-9 4-12 1z" fill="#e5383b"/>' +
+      '<path d="M21 30c0-6 3-11 8-13" fill="none" stroke="#fff6c2" stroke-width="3" stroke-linecap="round"/>',
+
+    moon:
+      '<path d="M40 8a24 24 0 1 0 16 38A20 20 0 0 1 40 8z" fill="#ffc928"/>' +
+      '<path d="M56 46A24 24 0 0 1 14 44c10 6 26 6 36-2z" fill="#e8a600" opacity=".55"/>' +
+      '<path d="M48 14l1.6 3.4 3.7.5-2.7 2.6.7 3.7-3.3-1.8-3.3 1.8.7-3.7-2.7-2.6 3.7-.5z" fill="#fff6c2"/>' +
+      '<circle cx="20" cy="26" r="2.4" fill="#fff6c2" opacity=".7"/>',
+
+    cookie:
+      '<path d="M32 6a26 26 0 1 0 25.4 20.5 6 6 0 0 1-7.2-7.2 6 6 0 0 1-6-7.2A26 26 0 0 0 32 6z" fill="#d99b55"/>' +
+      '<path d="M57.4 26.5A26 26 0 0 1 12 50c12 8 34 4 42-12 1.6-3.6 2.8-7.6 3.4-11.5z" fill="#b97a3c" opacity=".6"/>' +
+      '<g fill="#5a3418"><circle cx="22" cy="24" r="3.4"/><circle cx="34" cy="33" r="3.8"/><circle cx="20" cy="40" r="3"/><circle cx="40" cy="47" r="3.2"/><circle cx="30" cy="16" r="2.4"/><circle cx="46" cy="33" r="2.4"/></g>',
+
     // ---- Game items ----
     star:
       '<path d="M32 5.5l8 16.2 17.9 2.6-13 12.6 3.1 17.8L32 46.3 16 54.7l3.1-17.8-13-12.6 17.9-2.6z" fill="#ffc928" stroke="#eb9b00" stroke-width="3" stroke-linejoin="round"/>' +
