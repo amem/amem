@@ -44,7 +44,7 @@ const VIEWS = {
 };
 const TRAILERS = ['neon-stack', 'cosmic-merge', 'brick-blitz', 'catch-rush'];
 
-for (const dir of ['screenshots', 'fiverr', 'itch', 'gumroad', 'upwork', 'site', 'brand', 'video']) {
+for (const dir of ['screenshots', 'fiverr', 'itch', 'gumroad', 'upwork', 'site', 'brand', 'video', 'codecanyon']) {
   fs.mkdirSync(path.join(OUT, dir), { recursive: true });
 }
 fs.mkdirSync(TMP, { recursive: true });
@@ -97,6 +97,23 @@ async function captureHub() {
   await page.screenshot({ path: path.join(SHOTS, 'promo-arcade-card-1.png') });
   await ctx.close();
   console.log('  captured promo hub');
+  // A Spin & Win result showing a coupon (retry until the wheel lands on a prize).
+  const wctx = await browser.newContext(VIEWS.phone);
+  const wp = await wctx.newPage();
+  await wp.goto(`${server.url}/games/promo-arcade/spin-win/index.html`, { waitUntil: 'load' });
+  await sleep(800);
+  await wp.locator('[data-action="play"]').tap();
+  for (let i = 0; i < 12; i++) {
+    await sleep(400);
+    await wp.evaluate(() => window.__GAME__.forceGameOver());
+    await sleep(1400);
+    if (await wp.locator('.pa-coupon').count()) break;
+    await wp.locator('#pa-result [data-action="restart"]').tap();
+  }
+  await sleep(1800);
+  await wp.screenshot({ path: path.join(SHOTS, 'spin-win-phone-win.png') });
+  await wctx.close();
+  console.log('  captured spin-win prize');
 }
 
 async function recordTrailers() {
@@ -333,6 +350,32 @@ async function composeAll() {
     ${laptop(shot('neon-stack-desktop-1'), 'left:330px;top:470px;width:620px')}
   `));
 
+  // Gig 4 — spin the wheel
+  jobs.push(() => compose('fiverr/gig4-spin-wheel-1.png', W, H, `
+    <div class="abs" style="inset:0;background:#E0245E"></div>
+    <h1 class="abs display" style="left:64px;top:92px;width:600px;font-size:86px;color:#fff">Spin &amp; Win for your brand</h1>
+    <p class="abs" style="left:66px;top:360px;width:560px;font-size:32px;font-weight:700;line-height:1.3;color:#fff">Prize wheel · coupon codes · e-mail sign-ups</p>
+    <div class="abs chips" style="left:66px;top:520px;width:560px;color:#FFC23D"><span class="chip">Your odds</span><span class="chip">One spin a day</span><span class="chip">Any phone</span></div>
+    ${phone(shot('spin-win-phone-1'), 'left:700px;top:90px;width:250px;transform:rotate(-5deg)')}
+    ${phone(shot('spin-win-phone-win'), 'left:975px;top:120px;width:250px;transform:rotate(5deg)')}
+  `));
+
+  // ---- CodeCanyon preview images (inline 590×300, thumbnail 80×80)
+  for (const p of catalog.products) {
+    const d = deviceShot(p.id);
+    jobs.push(() => compose(`codecanyon/${p.id}-inline.png`, 590, 300, `
+      <div class="abs" style="inset:0;background:linear-gradient(135deg,${p.accent},${p.accent2})"></div>
+      <h1 class="abs display" style="left:28px;top:34px;width:300px;font-size:40px;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,.35)">${esc(p.title)}</h1>
+      <p class="abs" style="left:30px;top:${p.title.length > 11 ? 150 : 106}px;width:280px;font-size:17px;font-weight:700;color:#fff">${esc(p.tagline)}</p>
+      <p class="abs mono" style="left:30px;bottom:26px;font-size:13px;color:#fff">HTML5 · JAVASCRIPT · MOBILE READY</p>
+      ${laptop(d.wide, 'left:320px;top:60px;width:250px')}
+      ${phone(d.tall, 'left:470px;top:120px;width:90px;transform:rotate(4deg)')}
+    `));
+    jobs.push(() => compose(`codecanyon/${p.id}-thumb.png`, 80, 80, `
+      <img src="${shot(`${p.id}-card-1`)}" style="position:absolute;inset:0;width:80px;height:80px;object-fit:cover">
+    `));
+  }
+
   // ---- Studio logo (avatar for itch.io / Gumroad)
   jobs.push(() => compose('brand/studio-logo.png', 800, 800, `
     <div class="abs" style="inset:0;background:var(--ink)"></div>
@@ -362,4 +405,4 @@ try {
   await server.close();
 }
 const count = (dir) => fs.readdirSync(path.join(OUT, dir)).length;
-console.log(`\nDone → marketing/out/  (${['screenshots', 'fiverr', 'itch', 'gumroad', 'upwork', 'site', 'brand', 'video'].map((d) => `${d}: ${count(d)}`).join(', ')})`);
+console.log(`\nDone → marketing/out/  (${['screenshots', 'fiverr', 'itch', 'gumroad', 'upwork', 'site', 'brand', 'video', 'codecanyon'].map((d) => `${d}: ${count(d)}`).join(', ')})`);

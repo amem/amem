@@ -55,7 +55,7 @@ Tick these off in order. Everything you need to paste is in the files above.
 
 ### Day 3 — Direct outreach (your fastest first sale)
 - [ ] Make a list of 20 local shops, cafés, gyms, salons or online stores with an Instagram account.
-- [ ] For 5 of them, make a 5-minute rebrand of Spin & Win or Catch Rush (08-order-fulfillment.md §1), record a 15-second screen video, and send the DM template from 07-marketing.md §1. The demo is for them only; do not post their brand publicly.
+- [ ] For 5 of them, make a 5-minute rebrand of Spin & Win or Catch Rush ([07-marketing.md](07-marketing.md) §1, "The 5-minute spec demo"), record a 15-second screen video, and send the DM template from 07-marketing.md §1. The demo is for them only; do not post their brand publicly.
 
 ### Days 4–7 — Proposals and visibility
 - [ ] Upwork: send 2–4 tailored proposals per day (03-upwork.md §6). Quality beats volume.
