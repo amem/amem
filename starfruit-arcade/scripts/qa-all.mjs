@@ -8,10 +8,8 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const catalog = JSON.parse(fs.readFileSync(path.join(ROOT, 'catalog.json'), 'utf8'));
-const PROMO_GAMES = ['catch-rush', 'memory-match', 'spin-win'];
-
-const targets = catalog.products.flatMap((p) =>
-  p.id === 'promo-arcade' ? PROMO_GAMES.map((g) => `games/${p.id}/${g}`) : [`games/${p.id}`]);
+// Every page of every product (catalog "pages", default index.html).
+const targets = catalog.products.flatMap((p) => (p.pages || ['index.html']).map((page) => `games/${p.id}/${page}`));
 
 const failures = [];
 for (const target of targets) {
@@ -21,5 +19,5 @@ for (const target of targets) {
   });
   if (r.status !== 0) failures.push(target);
 }
-console.log(failures.length ? `\n✗ QA failed: ${failures.join(', ')}` : `\n✓ QA passed for ${targets.length} games`);
+console.log(failures.length ? `\n✗ QA failed: ${failures.join(', ')}` : `\n✓ QA passed for ${targets.length} pages`);
 process.exit(failures.length ? 1 : 0);

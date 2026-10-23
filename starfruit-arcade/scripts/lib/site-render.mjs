@@ -60,8 +60,14 @@ function shop(catalog) {
     row(b.id, b.title, `${esc(b.tagline)} <span class="save">save ${save}%</span>`, b.price, 'bundle');
 }
 
+function count(n) {
+  const words = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'];
+  return words[n] || String(n);
+}
+
 export function renderSite(html, catalog) {
   return html
+    .replace('<!-- build:count -->', count(catalog.products.length))
     .replace('<!-- build:games -->', games(catalog))
     .replace('<!-- build:services -->', services(catalog))
     .replace('<!-- build:shop -->', shop(catalog))

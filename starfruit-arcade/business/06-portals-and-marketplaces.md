@@ -16,7 +16,8 @@ Neither is fast, and each has a review. Submit after the shop basics are running
 
 ## 1. What portals look for
 
-The three arcade games (Neon Stack, Cosmic Merge, Brick Blitz) already meet the usual technical checklist. Promo Arcade is a business kit and is not meant for portals.
+The four games (Neon Stack, Cosmic Merge, Brick Blitz, Swapsy) already meet the usual technical checklist.
+Promo Arcade, Daily Doors and Perfect Match Quiz are business kits and are not meant for portals.
 
 - [x] Loads fast, small download, no external requests
 - [x] Works on desktop and mobile, any aspect ratio, inside an iframe
@@ -58,13 +59,14 @@ portal's test mode. Keep one zip per portal: `neon-stack-crazygames.zip`, etc.
 - Large web-game portal with a developer portal. You upload an HTML5 build, integrate their SDK
   for ads, and the game goes through a review and usually a limited test release first; wider
   release depends on how players respond.
-- Best candidates: **Cosmic Merge** (merge games are popular) and **Brick Blitz**.
+- Best candidates: **Swapsy** (match-3 is one of the most played genres on the web), **Cosmic
+  Merge** (merge games are popular) and **Brick Blitz**.
 - Prepare: 3–5 screenshots, a short gameplay video (`marketing/out/video/`), a clear description.
 
 ### GameDistribution
 - Distributes your game to many partner websites and pays a share of the ad revenue. Requires
   their SDK and their submission checklist.
-- Good for volume: submit **all three arcade games**.
+- Good for volume: submit **all four games**.
 
 ### Poki
 - Very selective: they pick and playtest games before publishing. Apply through their developer
@@ -107,7 +109,12 @@ CodeCanyon has an **HTML5 games** category where buyers look for reskinnable gam
 **Pricing:** Envato items in this category often sell for roughly $15–$40 (Regular). Check
 current similar items and price in the middle.
 
-Start with **Cosmic Merge** (most distinctive), learn from the review, then submit the others.
+Start with **Swapsy** or **Cosmic Merge** (the most complete games), learn from the review, then submit
+the others. Swapsy's included balancing simulator (`tools/balance.mjs`) and its level format are
+worth a line in the description: buyers of match-3 templates want to add levels.
+
+The business kits also fit CodeCanyon (*JavaScript → Miscellaneous* or the category reviewers
+point you to): Daily Doors before October, so it is live for the Christmas buying season.
 
 ## 4. Other places to list the source code
 

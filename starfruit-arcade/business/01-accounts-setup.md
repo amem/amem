@@ -44,7 +44,8 @@ Tips:
 2. Use your real name and photo for identity verification. Your display name can be the
    studio (follow Fiverr's current rules for business names).
 3. Fill the seller profile from [02-fiverr.md](02-fiverr.md) §1: description, skills, languages, portfolio.
-4. Publish **Gig 1 (branded mini-game)** and **Gig 2 (HTML5 game)** on day 1, Gig 3 and Gig 4 on day 2.
+4. Publish **Gig 1 (branded mini-game)** and **Gig 2 (HTML5 game)** on day 1, then Gig 4 and Gig 5 on day 2
+   (Gig 3 and Gig 6 when Fiverr lets your account add more gigs).
 5. Install the Fiverr mobile app and turn on notifications. Fast replies win early orders.
 
 ## 4. Upwork (30 minutes + approval)
@@ -53,13 +54,13 @@ Tips:
    sometimes declined in busy categories. If that happens, improve the portfolio and title and
    resubmit (see [03-upwork.md](03-upwork.md) §1).
 2. Category: *Web, Mobile & Software Dev → Game Development* (and add *Web Development* skills).
-3. Add the 4 portfolio items from `marketing/out/upwork/`.
+3. Add the 7 portfolio items from `marketing/out/upwork/`.
 4. Upwork charges "Connects" to send proposals. Spend them only on well-matched jobs.
 
 ## 5. Put the website online (20 minutes)
 
 The website is your link in every bio, email and proposal. `npm run build` creates it in
-`dist/site/` (all four games are playable under `play/`).
+`dist/site/` (every product is playable under `play/`).
 
 **Fastest: Netlify Drop (free)**
 1. Run `npm run build`.
@@ -82,12 +83,12 @@ Then test on your phone: open the site, play every game, tap every button.
 
 1. Create an account with the studio name as username, so your page is `studioname.itch.io`.
 2. *Settings → Payments*: choose how you get paid and complete the tax interview.
-3. Follow [04-itch-io.md](04-itch-io.md) to publish 4 free browser games and 4 source-code pages.
+3. Follow [04-itch-io.md](04-itch-io.md) to publish 7 free browser demos and 7 source-code pages.
 
 ## 7. Gumroad (30 minutes)
 
 1. Sign up, set the shop name and avatar, connect your payout method.
-2. Follow [05-gumroad.md](05-gumroad.md) to create 4 products and the bundle.
+2. Follow [05-gumroad.md](05-gumroad.md) to create 7 products and the bundle.
 3. Paste the product links into `site/site.config.js` and rebuild the site.
 
 ## 8. Social accounts (20 minutes)

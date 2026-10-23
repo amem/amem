@@ -52,6 +52,33 @@ with [08-order-fulfillment.md](08-order-fulfillment.md).
 - `I put [business] on a prize wheel (15-second preview)`
 - `A free game idea for [business]'s customers`
 - `[business] + spin to win = ?`
+- `A 24-day advent calendar for [business] (preview inside)`
+- `Which [product] is right for your customers? A 60-second quiz for [shop]`
+
+### Seasonal pitch: the advent calendar (Daily Doors)
+Dates sell. From **October to mid-November** the best opener is a branded advent calendar:
+shops plan December early and a calendar is easy to understand. Rebrand Daily Doors with their
+logo and 3–4 of their products (`config.js` → `brand`, `doors`), record the doors opening, and send:
+
+> Hi [name]! December idea for [business]: a 24-door advent calendar on your site and
+> Instagram. One door opens each day with a small gift, a discount or a tip, so customers come
+> back every day for 24 days. Here is [business]'s version (15 s): [video].
+>
+> I set the dates, the 24 surprises and the codes, and it works from a link or a QR code
+> at the counter. $[price], ready in 3 days. Want me to plan the 24 doors with you?
+
+The same kit covers **Ramadan** (30 doors), **Black Friday week**, a **12-day launch
+countdown** or a **summer scratch card**: change the dates and the texts. See the yearly
+calendar in [README.md](README.md) ("Sell by the calendar").
+
+### Online-shop pitch: the product-finder quiz (Perfect Match Quiz)
+For shops with many similar products (coffee, skincare, tea, plants, ice cream, gifts):
+rebrand the quiz with 4 of their products and send:
+
+> Hi [name], customers on [shop] can choose from a lot of [products]. A 60-second "which
+> [product] is right for you?" quiz picks for them, gives a discount code and can collect
+> their email. Here is a version with your products: [video or link].
+> $[price] one-time, ready in 4 days. Should the quiz end with a code or a direct product link?
 
 ## 2. Social posts
 
@@ -65,6 +92,10 @@ Post from the studio accounts. Show the product moving, not a logo.
 4. "Stack it perfect. One tap, 60 seconds, try to beat 30. 🔥"
 5. "Before / after: a generic wheel vs the same wheel in a café's colours. Which one would you spin?"
 6. "How the wheel lands exactly on the prize you set the odds for 🧵 (carousel)"
+7. "24 doors, 24 surprises. A December calendar your customers open every day 🎄 Want one? Link in bio."
+8. "Which ice cream are you? 🍦 Take the 60-second quiz (and see how shops use it to sell more)."
+9. "Scratch to win! 🎟 A digital scratch card in your shop's colours, made in an afternoon."
+10. "24 match-3 levels, balanced by a robot that played them thousands of times 🤖🍬"
 
 **LinkedIn (business owners, marketers, agencies):**
 > Small businesses ask me how to get more people to join their mailing list. One answer that
@@ -86,6 +117,10 @@ caption with the link in bio.
 - "Merge them all into a black hole 🕳️" (Cosmic Merge)
 - "This took a café owner 5 minutes" (Promo Arcade)
 - "Wait for the jackpot…" (Spin & Win, cut right before the wheel stops)
+- "Door 24 is the big one…" (Daily Doors)
+- "Scratch it slowly…" (Scratch & Win, stop before the prize shows)
+- "Which one are you? Comment your result 👇" (Perfect Match Quiz)
+- "Rainbow + rainbow = 💥" (Swapsy, the whole-board combo)
 - "I coded this game in JavaScript, no engine"
 
 **Simple formats to repeat:**
@@ -93,7 +128,7 @@ caption with the link in bio.
 2. *Brand transformation:* default demo → client colours (with a fictional brand, or with
    written permission from a real client).
 3. *Behind the code:* screen recording of `config.js`, change one colour, the game updates.
-4. *Satisfying moment:* the merge chain, the brick explosion, the wheel landing.
+4. *Satisfying moment:* the merge chain, the brick explosion, the wheel landing, a Swapsy cascade.
 
 Record new clips with `?demo=1` on your phone (screen recorder) or re-run `npm run assets`.
 
@@ -108,7 +143,7 @@ weekly threads, or with a flair. Be a member, not a billboard: comment helpfully
 | r/playmygame | Ask for feedback, answer every comment |
 | r/IndieDev, r/indiegames | A GIF of a satisfying moment + a short story |
 | r/gamedev | Only in the self-promotion / feedback threads; share a technique, not a sales pitch |
-| r/javascript, r/webdev | "Showoff" threads: how something was built (merge physics, crisp canvas) |
+| r/javascript, r/webdev | "Showoff" threads: how something was built (merge physics, crisp canvas, match-3 balancing) |
 | r/smallbusiness, r/marketing | Only answer questions helpfully; never drop links unasked |
 
 **Post template (r/WebGames / r/playmygame):**
@@ -125,10 +160,12 @@ profile until the site is live). Keep `site/site.config.js` up to date so every 
 
 | Week | Mon | Wed | Fri | Daily |
 |---|---|---|---|---|
-| 1 | Launch post (all 4 games) | Spin & Win trailer | r/WebGames: Neon Stack | 5 business DMs |
-| 2 | Cosmic Merge trailer | Behind the code (config.js) | r/playmygame: Brick Blitz | 5 business DMs |
-| 3 | Brand transformation (fictional brand) | Catch Rush challenge | itch.io devlog | 5 DMs + follow-ups |
-| 4 | Client result or "what I learned" | Brick Blitz satisfying clip | LinkedIn post for businesses | 5 DMs + follow-ups |
+| 1 | Launch post (all 7 products) | Spin & Win trailer | r/WebGames: Swapsy | 5 business DMs |
+| 2 | Daily Doors trailer (seasonal) | Behind the code (config.js) | r/playmygame: Brick Blitz | 5 business DMs |
+| 3 | Brand transformation (fictional brand) | Perfect Match Quiz "which one are you?" | itch.io devlog | 5 DMs + follow-ups |
+| 4 | Client result or "what I learned" | Cosmic Merge satisfying clip | LinkedIn post for businesses | 5 DMs + follow-ups |
+
+From October to November, make every second business DM the advent-calendar pitch (§1).
 
 Batch-produce: record 4 clips in one sitting on Sunday, schedule them for the week.
 

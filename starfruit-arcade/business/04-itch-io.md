@@ -9,28 +9,28 @@ All files come from `npm run build` (in `dist/`) and `npm run assets` (in `marke
 
 ---
 
-## 1. Browser game pages (4 projects, free)
+## 1. Browser game pages (7 projects, free)
 
-Create one project per game: *Dashboard → Create new project*.
+Create one project per product: *Dashboard → Create new project*.
 
 | Field | Value |
 |---|---|
-| Title | `Neon Stack` / `Cosmic Merge` / `Brick Blitz` / `Promo Arcade — Play & Win demo` |
-| Project URL | `neon-stack`, `cosmic-merge`, `brick-blitz`, `promo-arcade` |
+| Title | `Neon Stack` / `Cosmic Merge` / `Brick Blitz` / `Swapsy` / `Promo Arcade — Play & Win demo` / `Daily Doors — Advent Calendar demo` / `Perfect Match Quiz — demo` |
+| Project URL | `neon-stack`, `cosmic-merge`, `brick-blitz`, `swapsy`, `promo-arcade`, `daily-doors`, `perfect-match-quiz` |
 | Short description | the `tagline` from `catalog.json` |
 | Classification | Games |
 | Kind of project | **HTML** |
 | Release status | Released |
 | Pricing | **No payments** (or "$0 or donate") |
 | Uploads | `dist/itch/<id>-html5-v1.0.0.zip`, tick **"This file will be played in the browser"** |
-| Viewport | 960 × 600 (Promo Arcade: 960 × 640) |
+| Viewport | 960 × 600 (Swapsy: 540 × 860 · Promo Arcade: 960 × 640 · Daily Doors and Perfect Match Quiz: 960 × 720) |
 | Options | ✓ Mobile friendly (orientation: default) · ✓ Fullscreen button · ✗ Automatically start on page load (click-to-play loads faster in lists) |
 | Description | see below |
-| Genre | Neon Stack: Action · Cosmic Merge: Puzzle · Brick Blitz: Action · Promo Arcade: Other |
+| Genre | Neon Stack: Action · Cosmic Merge: Puzzle · Brick Blitz: Action · Swapsy: Puzzle · Promo Arcade, Daily Doors, Perfect Match Quiz: Other |
 | Tags | from `catalog.json` → `tags`, plus `html5`, `browser`, `mobile` |
 | AI disclosure | answer itch.io's question about generative AI honestly |
 | Cover image | `marketing/out/itch/<id>-cover.png` (630 × 500) |
-| Screenshots | `marketing/out/screenshots/<id>-desktop-1.png`, `<id>-phone-1.png`, `<id>-desktop-2.png` |
+| Screenshots | `marketing/out/screenshots/<id>-desktop-1.png`, `<id>-phone-1.png`, `<id>-desktop-2.png` (Daily Doors: add `scratch-win-phone-1.png`) |
 | Trailer | upload `marketing/out/video/<id>-trailer-landscape.mp4` to YouTube, paste the link |
 | Visibility | Public |
 
@@ -55,7 +55,7 @@ Create one project per game: *Dashboard → Create new project*.
 **Theme the page:** *Edit theme* → background colour from the game's `accent` in
 `catalog.json`, dark text panel, banner image optional. Consistent pages look professional.
 
-## 2. Source-code pages (4 projects + bundle, paid)
+## 2. Source-code pages (7 projects + bundle, paid)
 
 Create a second project per product, so the free game page stays clean.
 
@@ -64,7 +64,7 @@ Create a second project per product, so the free game page stays clean.
 | Title | `Neon Stack — HTML5 Source Code` (same pattern for each) |
 | Classification | **Game assets** (or Tools) |
 | Kind of project | Downloadable |
-| Pricing | Paid, **minimum = the Standard price** in `catalog.json` (Neon Stack $15, Cosmic Merge $19, Brick Blitz $17, Promo Arcade $29, Bundle $59) |
+| Pricing | Paid, **minimum = the Standard price** in `catalog.json` (Neon Stack $15, Cosmic Merge $19, Brick Blitz $17, Swapsy $29, Promo Arcade $29, Daily Doors $25, Perfect Match Quiz $25, Bundle $99) |
 | Uploads | `dist/source/<id>-v1.0.0-standard.zip` |
 | Tags | `source-code`, `html5`, `javascript`, `template`, `reskin`, + genre tags |
 | Cover / screenshots | same as the game page |
@@ -79,7 +79,7 @@ Create a second project per product, so the free game page stays clean.
 >
 > **What you get**
 > - Complete, commented source code (no frameworks, no build step, no dependencies)
-> - One `config.js` with every colour, text and tuning value
+> - One `config.js` (Promo Arcade: `brand.config.js`) with every colour, text and tuning value
 > - Buyer README: reskinning guide, ad-hook examples, publishing steps
 > - Demo mode for trailers (`?demo=1`)
 > - Standard license: use in one end product (game, client project or website)
@@ -88,8 +88,8 @@ Create a second project per product, so the free game page stays clean.
 >
 > Support: message me on itch.io.
 
-The **bundle** page: title `Starfruit Arcade — 4 HTML5 Games Source Code Bundle`, upload
-`dist/source/starfruit-arcade-bundle-v1.0.0-standard.zip`, link the four free game pages.
+The **bundle** page: title `Starfruit Arcade — 7 HTML5 Games & Kits Source Code Bundle`, upload
+`dist/source/starfruit-arcade-bundle-v1.0.0-standard.zip`, link the seven free game pages.
 
 > Why Extended only on Gumroad? itch.io sells one price per project. Gumroad has versions
 > (Standard / Extended) on one product page, so the choice is clearer there.
@@ -102,7 +102,7 @@ itch.io keep the platform running, and you can change it per project later).
 
 ## 4. Collections and visibility
 
-- Create a collection **"Starfruit Arcade"** with all 4 games and add it to your profile.
+- Create a collection **"Starfruit Arcade"** with all 7 demos and add it to your profile.
 - Fill your creator profile: avatar `marketing/out/brand/studio-logo.png`, bio, website link.
 - Join a game jam now and then: jams are the biggest free traffic source on itch.io (only
   submit a new game made for the jam, following its rules).
@@ -123,4 +123,5 @@ itch.io keep the platform running, and you can change it per project later).
 > Developers: the full source code is available here: [source page]. Questions welcome in the comments!
 
 Ideas for later devlogs: "How I made the wheel land exactly on the prize", "Making canvas games
-crisp on phones", "5 tips for HTML5 games on portals". Each one is also a Reddit / LinkedIn post.
+crisp on phones", "5 tips for HTML5 games on portals", "Balancing 24 match-3 levels with a
+simulated player", "A scratch card in 100 lines of canvas". Each one is also a Reddit / LinkedIn post.

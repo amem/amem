@@ -15,6 +15,8 @@ All launch prices below match `catalog.json`, the website and the gig docs.
 | Custom HTML5 game (Gig 2) | $90 | $220 | $480 |
 | Fixes and optimisation (Gig 3) | $25 | $60 | $120 |
 | Spin-the-wheel (Gig 4) | $45 | $90 | $180 |
+| Seasonal campaign: advent calendar / scratch card (Gig 5) | $50 | $120 | $240 |
+| Product-finder quiz (Gig 6) | $70 | $140 | $260 |
 
 ### Products (source code)
 
@@ -23,8 +25,11 @@ All launch prices below match `catalog.json`, the website and the gig docs.
 | Neon Stack | $15 | $49 |
 | Cosmic Merge | $19 | $69 |
 | Brick Blitz | $17 | $59 |
+| Swapsy | $29 | $99 |
 | Promo Arcade | $29 | $99 |
-| Bundle (all 4) | $59 | $179 |
+| Daily Doors | $25 | $89 |
+| Perfect Match Quiz | $25 | $89 |
+| Bundle (all 7) | $99 | $299 |
 
 ### Direct clients (local businesses, no platform fee)
 
@@ -33,6 +38,9 @@ All launch prices below match `catalog.json`, the website and the gig docs.
 | One branded game + link + QR code | $80–$150 |
 | Game + lead capture to their sheet | $150–$250 |
 | All three games + hub ("Play & Win page") | $300–$450 |
+| Advent / countdown calendar (24 doors, codes, QR code) | $150–$300 |
+| Product-finder quiz with their products + email capture | $150–$300 |
+| Branded match-3 advergame (Swapsy with their products, 10 levels) | $350–$700 |
 | Monthly care: prize changes, seasonal theme, hosting check | $15–$30 / month |
 
 Adjust to your local market: a café in a small town and a retail chain have different budgets.
@@ -69,9 +77,14 @@ Never lower prices to compete with the cheapest sellers. Improve the demo and th
 4. **Recurring revenue:** monthly care plans and seasonal themes for every business client.
 5. **Agencies:** marketing agencies resell games to their clients. Offer them white-label
    (no credit line, `studioCredit: ''`) at a wholesale price with the Extended license.
-6. **New products from what clients ask for:** e.g. a scratch card, a quiz, an advent calendar.
-   Build it once for a client (with their agreement on ownership), then turn it into a product.
-7. **Content:** one useful video or post per week compounds over months.
+6. **New products from what clients ask for:** the scratch card, quiz and advent calendar are
+   already in the kit; next ideas are a "find the hidden item" photo game, a loyalty stamp card
+   and a wedding/event trivia night. Build it once for a client (with their agreement on
+   ownership), then turn it into a product.
+7. **Sell by the calendar:** pitch each seasonal campaign 4–6 weeks before the date (see
+   [README.md](README.md), "Sell by the calendar"). Every December calendar client is a
+   Ramadan, summer or Black Friday client later in the year.
+8. **Content:** one useful video or post per week compounds over months.
 
 ## 5. Simple targets
 

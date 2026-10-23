@@ -48,10 +48,49 @@ Time it: after two or three, this takes under 10 minutes.
    one-page "how to change prizes" note (copy from the README), and the embed snippet for their
    website if they have one.
 
+## 2b. Delivering a seasonal campaign (Daily Doors: Gig 5)
+
+1. **Brief** (template A, plus): campaign dates, number of doors (24 advent, 30 Ramadan, 12, 7…),
+   what is behind each door (gift + code, discount, tip, recipe, link), and whether missed
+   doors may be opened later. Send them a simple 3-column sheet to fill: *day, title, code*.
+2. **Copy `games/daily-doors/`** to the client folder and edit `config.js`:
+   - `name`, `tagline`, `logoText` / `logoImage`, `colors`, `fonts`
+   - `calendar.startDate` (`'YYYY-MM-DD'`, the first door), `calendar.days`, `allowPastDoors`,
+     `reveal` (`'scratch'` foil or `'tap'`), `endMessage`
+   - `doors`: one entry per day (`title`, `code`, `description`, `icon` or `image`)
+   - `scratch.prizes` and their weights if they also ordered the Scratch & Win card
+   - `leadCapture` (same webhook setup as Promo Arcade), `legal`, `storageKey` (client + campaign)
+3. **Check every door before the start date:** open `index.html?date=<any day>` to see the
+   calendar on that day, open each door, and compare the codes with the client's sheet.
+4. Host it, make the QR code, deliver the preview and the final files as in §2. Add to the final
+   note: "the doors open by themselves at midnight on the visitor's device; to change a prize,
+   edit the line for that day in `config.js` and upload the file again."
+5. **After the campaign:** offer next season's version (new dates, new doors) at the Basic price.
+   Save the client folder: re-theming it next year takes minutes.
+
+## 2c. Delivering a product-finder quiz (Perfect Match Quiz: Gig 6)
+
+1. **Brief** (template A, plus): the 3–6 products the quiz can recommend (name, picture, one
+   line why, link, optional code), 4–7 questions (or ask you to write them), and the action at
+   the end: discount code, product link, email capture or all three.
+2. **Copy `games/perfect-match-quiz/`** and edit `config.js`:
+   - brand block (`name`, `logoText` / `logoImage`, `colors`, `fonts`)
+   - `quiz.title`, `quiz.subtitle`, `quiz.questions` (each answer gives `points` to outcomes)
+   - `quiz.outcomes`: one per product (title, description, image or icon, code, link)
+   - `cta`, `leadCapture`, `share`, `legal`, `storageKey`
+   For a trivia game instead, start from `examples/trivia.js` (`quiz.type: 'trivia'`).
+3. **Check the scoring:** play it once per outcome and make sure each product can win. If one
+   product never comes out, give it more points in two or three answers.
+4. **Result card:** download the share image from the result screen and check the logo, the
+   colours and the product picture look good at phone size.
+5. Host, QR code and delivery as in §2. For online shops, include the embed snippet for their
+   shop page and the analytics events from `hooks.onResult` if they use one.
+
 ## 3. Delivering a custom HTML5 game (Gig 2)
 
 1. **Reskin from a product.** Copy the game folder, then change `config.js` (colours, texts,
-   difficulty). Replace procedural graphics with images where the README says (each game's
+   difficulty). For a match-3 advergame, start from Swapsy: product pictures as `pieces[].image`
+   and a short set of levels in `js/levels.js`; check new levels with `node tools/balance.mjs`. Replace procedural graphics with images where the README says (each game's
    README names the exact draw functions).
 2. **Preview within 48 hours,** even if rough. Early previews prevent big misunderstandings.
 3. **Licensing:** the client gets the right to use and modify their game. Your engine stays
@@ -79,7 +118,7 @@ Time it: after two or three, this takes under 10 minutes.
 - [ ] Plays on a real phone (portrait) and on desktop
 - [ ] No errors in the browser console
 - [ ] Client's name, logo, colours and texts are spelled correctly everywhere
-- [ ] Coupon codes match what the client gave you
+- [ ] Coupon codes match what the client gave you (calendars: every door checked with `?date=`)
 - [ ] Lead capture tested end-to-end (if ordered)
 - [ ] Link + QR code tested on two phones
 - [ ] The zip opens and runs by double-clicking `index.html`

@@ -40,7 +40,8 @@ if (!file.startsWith(ROOT + path.sep)) {
 }
 const rel = path.relative(ROOT, file).split(path.sep).join('/');
 const gameDir = path.dirname(file);
-const qaId = path.relative(ROOT, gameDir).split(path.sep).join('__') || 'root';
+// One screenshot folder per page: games/x/index.html → games__x, games/x/other.html → games__x__other.
+const qaId = path.relative(ROOT, file).replace(/[\\/]index\.html$/, '').replace(/\.html$/, '').split(path.sep).join('__') || 'root';
 const outDir = path.resolve(ROOT, args.out || path.join('.qa', qaId));
 fs.mkdirSync(outDir, { recursive: true });
 

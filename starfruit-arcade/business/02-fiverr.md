@@ -1,4 +1,4 @@
-# 02 — Fiverr: profile and 4 gigs
+# 02 — Fiverr: profile and 6 gigs
 
 Fiverr is where small businesses search for "spin wheel", "branded game", "html5 game" and
 "fix my game". Your edge: every gig shows a **finished, playable product**, and most orders
@@ -232,7 +232,99 @@ phone screen (15 s) or use `catch-rush-trailer-portrait.mp4`.
 
 ---
 
-## 6. Ranking and conversion tips
+## 6. Gig 5 — Seasonal campaign (advent calendar, scratch card)
+
+Your most timely gig: businesses look for advent calendars from October, Black Friday ideas in
+November and Ramadan calendars a few weeks before Ramadan. Built on Daily Doors.
+
+**Title:** `I will create a branded advent calendar or scratch card for your campaign`
+
+**Tags:** `advent calendar`, `scratch card`, `christmas campaign`, `ramadan calendar`, `coupon`
+
+**Packages:**
+
+| | Basic | Standard | Premium |
+|---|---|---|---|
+| Name | Scratch card | Calendar | Full campaign |
+| Description | Scratch & Win card with your logo, colours and up to 6 prizes with exact odds and codes | Advent / countdown calendar (up to 24 doors) with your deals, scratch reveal and lead capture | Calendar up to 30 doors + Scratch & Win card + lead capture to your Google Sheet + QR code + website embed |
+| Delivery | 2 days | 3 days | 5 days |
+| Revisions | 2 | 3 | 4 |
+| Price | **$50** | **$120** | **$240** |
+
+**Extras:** Extra-fast delivery (+$30), Second language (+$25), Hosting setup (+$25),
+Next season's re-theme (+$40).
+
+**Description:**
+
+> Bring customers back every day this season with an online advent calendar in YOUR brand.
+>
+> Every day a new door unlocks. Customers scratch the foil to reveal today's deal, copy the
+> coupon code with one tap and come back tomorrow for the next door.
+>
+> 🎄 Christmas advent (24 doors), 🌙 Ramadan (30 doors), 🛍️ Black Friday week, launch countdowns
+> ✅ Your logo, colours and deals behind every door
+> ✅ Doors unlock automatically by date, missed doors can stay open
+> ✅ Scratch-to-reveal with sparkles and sound (or tap to open)
+> ✅ Optional email / phone capture sent to your Google Sheet
+> ✅ Bonus Scratch & Win card with exact prize odds
+> ✅ Works on every phone, share by link, QR code or website embed
+>
+> Send your dates and deals, test the preview on your phone, and launch.
+
+**FAQ:** *Do I need to update it every day?* No, the doors open by themselves on their dates.
+*Can I see who opened doors?* With lead capture, every claimed code is saved with the person's
+details. *Can I reuse it next year?* Yes: new dates and deals, same calendar.
+
+**Requirements:** logo; colours; campaign type and start date; number of doors; the deal or
+message for each door (or "help me write them"); lead capture yes/no.
+
+**Gallery:** `gig5-campaign-1.png`, `gig5-campaign-2.png`. **Video:** `daily-doors-trailer-landscape.mp4`.
+
+---
+
+## 7. Gig 6 — Product-finder quiz
+
+Built on Perfect Match Quiz. Strong for online shops, cafés, salons, gyms and coaches.
+
+**Title:** `I will create a product recommendation quiz for your online store`
+
+**Tags:** `product quiz`, `quiz funnel`, `personality quiz`, `lead generation`, `interactive quiz`
+
+**Packages:**
+
+| | Basic | Standard | Premium |
+|---|---|---|---|
+| Name | Quiz | Quiz + leads | Quiz funnel |
+| Description | Up to 6 questions and 4 results in your brand, with a product and coupon per result | + lead capture with the quiz result to your Google Sheet / email tool, shareable result image | + up to 10 questions and 6 results, trivia version, website embed, analytics events |
+| Delivery | 3 days | 4 days | 6 days |
+| Revisions | 2 | 3 | 4 |
+| Price | **$70** | **$140** | **$260** |
+
+**Description:**
+
+> "Which product is right for me?" Your customers answer a few fun questions and get their
+> perfect match, with a coupon to buy it now.
+>
+> ✅ Personality / product-finder quiz in your brand (or a trivia quiz)
+> ✅ Each result recommends a product with a button to buy it
+> ✅ Coupon code on the result, optional email capture (the result is saved with the lead)
+> ✅ A shareable result image for Instagram stories
+> ✅ Works on every phone, share by link or embed it on your site
+>
+> Send me your products and I can help you write the questions.
+
+**FAQ:** *Do you write the questions?* Yes if you want: I draft them from your product list and you
+approve. *Can results link to my product pages?* Yes, each result has its own button.
+
+**Gallery:** `gig6-quiz-1.png`, `gig6-quiz-2.png`. **Video:** `perfect-match-quiz-trailer-portrait.mp4`.
+
+> **Gig limits:** Fiverr limits how many active gigs a new seller can have. If you hit the limit,
+> keep Gig 1, Gig 5 and Gig 2 active first (or Gig 4 / Gig 6 depending on what buyers ask for),
+> and add the rest as your seller level grows.
+
+---
+
+## 8. Ranking and conversion tips
 
 - **Reply fast.** Response time and online status matter a lot for new sellers. Keep the app on.
 - **Answer every inquiry with a mini-demo** when it is a business: a 5-minute rebrand of Spin &

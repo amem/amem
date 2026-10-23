@@ -18,6 +18,9 @@ window.SITE_CONFIG = {
     'cosmic-merge': { itch: '', gumroad: '' },
     'brick-blitz':  { itch: '', gumroad: '' },
     'promo-arcade': { itch: '', gumroad: '' },
+    'daily-doors':  { itch: '', gumroad: '' },
+    'perfect-match-quiz': { itch: '', gumroad: '' },
+    'swapsy':       { itch: '', gumroad: '' },
     'starfruit-arcade-bundle': { itch: '', gumroad: '' }
   }
 };

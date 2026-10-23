@@ -1,7 +1,7 @@
 # START HERE — Starfruit Arcade launch kit
 
-You have four finished products, a website, listing images, trailers and every text
-you need to open shop. This folder is the plan. Follow it top to bottom.
+You have seven finished products (four games and three marketing kits), a website,
+listing images, trailers and every text you need to open shop. This folder is the plan. Follow it top to bottom.
 
 ## The business in one picture
 
@@ -17,7 +17,7 @@ you need to open shop. This folder is the plan. Follow it top to bottom.
 - **Services pay first.** A business that wants a branded game pays $60–$320 per order.
   The games in `games/` are your portfolio *and* your production engine: most orders are a
   rebrand of a product you already own, delivered in hours, not weeks.
-- **Products pay forever.** The same games sell as source code ($15–$179) and earn ad
+- **Products pay forever.** The same games sell as source code ($15–$299) and earn ad
   revenue on web-game portals. Slow to start, zero extra work per sale.
 
 ## What is in this kit
@@ -25,7 +25,7 @@ you need to open shop. This folder is the plan. Follow it top to bottom.
 | File | Use it for |
 |---|---|
 | [01-accounts-setup.md](01-accounts-setup.md) | Opening Fiverr, Upwork, itch.io, Gumroad, payouts, the website |
-| [02-fiverr.md](02-fiverr.md) | Seller profile + 4 complete gigs (titles, packages, descriptions, FAQ, tags, images) |
+| [02-fiverr.md](02-fiverr.md) | Seller profile + 6 complete gigs (titles, packages, descriptions, FAQ, tags, images) |
 | [03-upwork.md](03-upwork.md) | Profile, portfolio, Project Catalog, 6 proposal templates, job searches |
 | [04-itch-io.md](04-itch-io.md) | Game pages + source-code pages, upload settings, devlog template |
 | [05-gumroad.md](05-gumroad.md) | Product pages with Standard/Extended versions, bundle, discount codes |
@@ -38,6 +38,22 @@ you need to open shop. This folder is the plan. Follow it top to bottom.
 Listing images: `marketing/out/` (regenerate with `npm run assets`).
 Upload files: `dist/` (regenerate with `npm run build`).
 
+## Sell by the calendar
+
+Two of the kits are seasonal, and businesses plan campaigns **4–8 weeks ahead**. Pitch early:
+
+| Campaign | Live on | Pitch it | Product |
+|---|---|---|---|
+| Black Friday week | the week before Black Friday (27 Nov 2026) | October to early November | Daily Doors (`days: 7`), Spin & Win |
+| Christmas advent calendar | 1 December | October to mid-November | Daily Doors (`days: 24`) |
+| New Year / January sales | 1 January | December | Perfect Match Quiz ("find your perfect…"), Scratch & Win |
+| Valentine's Day | early February | January | Perfect Match Quiz, Scratch & Win |
+| Ramadan calendar | the first day of Ramadan (early 2027; check the local date) | about 6 weeks before | Daily Doors (`days: 30`, `effect: 'stars'`, `logoIcon: 'moon'`) |
+| Back to school, summer, store openings | any time | 4 weeks before | Quiz, Promo Arcade |
+
+Right now (late October) the advent calendar is the easiest sale of all: every café, bakery,
+boutique and online shop understands it instantly. Lead your outreach with it.
+
 ## The 14-day launch plan
 
 Tick these off in order. Everything you need to paste is in the files above.
@@ -49,9 +65,9 @@ Tick these off in order. Everything you need to paste is in the files above.
 - [ ] Create the Upwork account and submit the profile for approval.
 
 ### Day 2 — Products live
-- [ ] itch.io: publish the 4 free browser games and the 4 source-code pages.
-- [ ] Gumroad: publish the 4 products and the bundle, then paste the links into `site/site.config.js` and re-deploy the site.
-- [ ] Publish **Gig 3 (fixes)** and **Gig 4 (spin the wheel)** on Fiverr.
+- [ ] itch.io: publish the 7 free browser demos and the 7 source-code pages.
+- [ ] Gumroad: publish the 7 products and the bundle, then paste the links into `site/site.config.js` and re-deploy the site.
+- [ ] Publish **Gig 4 (spin the wheel)** and **Gig 5 (seasonal campaign)** on Fiverr, then Gig 3 (fixes) and Gig 6 (quiz) when your account allows more gigs.
 
 ### Day 3 — Direct outreach (your fastest first sale)
 - [ ] Make a list of 20 local shops, cafés, gyms, salons or online stores with an Instagram account.

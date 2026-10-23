@@ -12,7 +12,14 @@
       "accent": "#ff3cac",
       "accent2": "#2b86c5",
       "controls": "Tap, click or press Space to drop the block.",
-      "tags": ["hyper-casual", "one-tap", "isometric", "arcade", "mobile", "neon"],
+      "tags": [
+        "hyper-casual",
+        "one-tap",
+        "isometric",
+        "arcade",
+        "mobile",
+        "neon"
+      ],
       "features": [
         "One-tap gameplay that anyone understands in 2 seconds",
         "Isometric 2.5D rendering with neon edges and a synthwave grid",
@@ -21,7 +28,10 @@
         "Built-in demo bot for trailers and an animated title screen",
         "Everything reskinnable from one commented config file"
       ],
-      "price": { "standard": 15, "extended": 49 }
+      "price": {
+        "standard": 15,
+        "extended": 49
+      }
     },
     {
       "id": "cosmic-merge",
@@ -33,7 +43,14 @@
       "accent": "#7b5cff",
       "accent2": "#ffb347",
       "controls": "Move to aim, tap or click to drop. Arrow keys + Space on keyboard.",
-      "tags": ["merge", "physics", "puzzle", "casual", "space", "mobile"],
+      "tags": [
+        "merge",
+        "physics",
+        "puzzle",
+        "casual",
+        "space",
+        "mobile"
+      ],
       "features": [
         "Stable custom circle physics that settles 60+ bodies smoothly",
         "11 hand-drawn procedural planets with cute animated faces",
@@ -42,7 +59,10 @@
         "Swap planets for fruit, candy or your brand's products",
         "Built-in demo bot for trailers and an animated title screen"
       ],
-      "price": { "standard": 19, "extended": 69 }
+      "price": {
+        "standard": 19,
+        "extended": 69
+      }
     },
     {
       "id": "brick-blitz",
@@ -54,7 +74,14 @@
       "accent": "#00e5ff",
       "accent2": "#ff5e62",
       "controls": "Move the mouse or drag to steer, tap or press Space to launch.",
-      "tags": ["breakout", "arcade", "levels", "power-ups", "retro", "mobile"],
+      "tags": [
+        "breakout",
+        "arcade",
+        "levels",
+        "power-ups",
+        "retro",
+        "mobile"
+      ],
       "features": [
         "12 handcrafted levels in a plain-text level format you can edit",
         "8 power-ups: multi-ball, laser, fireball, catch, wide, slow and more",
@@ -63,7 +90,10 @@
         "Tunnel-proof sub-stepped ball physics",
         "Built-in demo bot for trailers and an animated title screen"
       ],
-      "price": { "standard": 17, "extended": 59 }
+      "price": {
+        "standard": 17,
+        "extended": 59
+      }
     },
     {
       "id": "promo-arcade",
@@ -75,7 +105,14 @@
       "accent": "#ff7a18",
       "accent2": "#1fd1a5",
       "controls": "Tap or click. Drag or use arrow keys in Catch Rush.",
-      "tags": ["advergame", "marketing", "prize wheel", "memory game", "lead generation", "branding"],
+      "tags": [
+        "advergame",
+        "marketing",
+        "prize wheel",
+        "memory game",
+        "lead generation",
+        "branding"
+      ],
       "features": [
         "3 games in one kit: Catch Rush, Memory Match, Spin & Win",
         "Rebrand everything (logo, colours, products, prizes) in one file",
@@ -84,14 +121,127 @@
         "Spins-per-day limit, share buttons, analytics hooks",
         "Mobile-first design for QR codes, social links and kiosks"
       ],
-      "price": { "standard": 29, "extended": 99 }
+      "price": {
+        "standard": 29,
+        "extended": 99
+      },
+      "config": "brand.config.js",
+      "pages": [
+        "catch-rush/index.html",
+        "memory-match/index.html",
+        "spin-win/index.html"
+      ]
+    },
+    {
+      "id": "daily-doors",
+      "number": "05",
+      "title": "Daily Doors",
+      "tagline": "A new treat behind every door.",
+      "genre": "Campaign calendar & scratch card kit",
+      "summary": "A branded advent / countdown calendar where a new door unlocks every day and customers scratch the foil to reveal a coupon, plus a Scratch & Win card with real prize odds. Perfect for Christmas, Ramadan, Black Friday and launches.",
+      "accent": "#d7263d",
+      "accent2": "#1b8a5a",
+      "controls": "Tap or click a door, then scratch with a finger or the mouse.",
+      "tags": [
+        "advent calendar",
+        "scratch card",
+        "marketing",
+        "coupons",
+        "lead generation",
+        "seasonal"
+      ],
+      "features": [
+        "Any start date and 1–60 doors that unlock at local midnight",
+        "Scratch-off foil reveal with sparkles, dust and sound",
+        "Coupon or message behind every door, opened doors remembered",
+        "Scratch & Win page with weighted prizes and a daily limit",
+        "Optional lead capture to any webhook",
+        "Rebrand everything in one config file"
+      ],
+      "price": {
+        "standard": 25,
+        "extended": 89
+      },
+      "pages": [
+        "index.html",
+        "scratch.html"
+      ]
+    },
+    {
+      "id": "perfect-match-quiz",
+      "number": "06",
+      "title": "Perfect Match Quiz",
+      "tagline": "Find your perfect match in 60 seconds.",
+      "genre": "Product-finder & trivia quiz kit",
+      "summary": "A branded quiz that turns visitors into customers: personality / product-finder quizzes with a 'your mix' breakdown, or trivia with timers and score tiers. Results recommend a product, unlock a coupon, capture the lead and create a shareable result image.",
+      "accent": "#7c4dff",
+      "accent2": "#ff5fa2",
+      "controls": "Tap or click an answer, or press 1–4.",
+      "tags": [
+        "quiz",
+        "product finder",
+        "personality quiz",
+        "trivia",
+        "lead generation",
+        "marketing"
+      ],
+      "features": [
+        "Personality / product-finder and trivia quiz types",
+        "Result with product, coupon and call-to-action",
+        "Shareable 1080 × 1350 result image for stories",
+        "Lead capture that includes the quiz result",
+        "Picture or text answers, timer, back button",
+        "One config file, all texts translatable"
+      ],
+      "price": {
+        "standard": 25,
+        "extended": 89
+      },
+      "pages": [
+        "index.html",
+        "trivia.html"
+      ]
+    },
+    {
+      "id": "swapsy",
+      "number": "07",
+      "title": "Swapsy",
+      "tagline": "Swap. Match. Smile.",
+      "genre": "Match-3 puzzle",
+      "summary": "A cute, polished match-3 with 24 levels, line blasters, bombs, rainbow pieces and combos, jelly and collect goals, stars and saved progress. Difficulty tuned with simulated play; the balancing simulator is included.",
+      "accent": "#ff4d8d",
+      "accent2": "#8f6bff",
+      "controls": "Swipe a piece toward a neighbour, or tap two neighbours. Arrows + Space on keyboard.",
+      "tags": [
+        "match-3",
+        "puzzle",
+        "casual",
+        "levels",
+        "mobile",
+        "cute"
+      ],
+      "features": [
+        "24 levels: score, collect and jelly goals on shaped boards",
+        "Line blasters, bombs, rainbow pieces and special combos",
+        "Stars, level select and saved progress",
+        "Hints, reshuffle, swipe / tap / keyboard controls",
+        "Level balancing simulator included",
+        "Built-in demo bot for trailers and an animated title screen"
+      ],
+      "price": {
+        "standard": 29,
+        "extended": 99
+      }
     }
   ],
   "bundle": {
     "id": "starfruit-arcade-bundle",
     "title": "Starfruit Arcade Complete Bundle",
-    "tagline": "All 4 products. One price.",
-    "price": { "standard": 59, "extended": 179 }
+    "tagline": "All 7 products. One price.",
+    "price": {
+      "standard": 99,
+      "extended": 299
+    }
   },
   "services": [
     {
@@ -101,7 +251,26 @@
       "demo": "promo-arcade",
       "from": 60,
       "days": 3,
-      "includes": ["Your logo, colours and products", "Coupon-code rewards", "Works on every phone", "Hosting help included"]
+      "includes": [
+        "Your logo, colours and products",
+        "Coupon-code rewards",
+        "Works on every phone",
+        "Hosting help included"
+      ]
+    },
+    {
+      "id": "campaign-kit",
+      "title": "Seasonal campaign page",
+      "summary": "An advent calendar, product-finder quiz or scratch card in your brand for Christmas, Ramadan, Black Friday or a launch. Coupon codes, lead capture and a link or QR code to share.",
+      "demo": "daily-doors",
+      "from": 70,
+      "days": 3,
+      "includes": [
+        "Your brand, offers and dates",
+        "Coupons and optional lead capture",
+        "Tested on phone and desktop",
+        "Link, QR code and embed code"
+      ]
     },
     {
       "id": "custom-game",
@@ -110,7 +279,12 @@
       "demo": "cosmic-merge",
       "from": 90,
       "days": 4,
-      "includes": ["Playable preview in 48 hours", "Full source code", "Ad-SDK ready hooks", "Mobile and desktop"]
+      "includes": [
+        "Playable preview in 48 hours",
+        "Full source code",
+        "Ad-SDK ready hooks",
+        "Mobile and desktop"
+      ]
     },
     {
       "id": "game-fixes",
@@ -119,7 +293,12 @@
       "demo": "brick-blitz",
       "from": 25,
       "days": 1,
-      "includes": ["Fixed price up front", "Tested on phone and desktop", "Short report of what changed", "Delivery in 1–3 days"]
+      "includes": [
+        "Fixed price up front",
+        "Tested on phone and desktop",
+        "Short report of what changed",
+        "Delivery in 1–3 days"
+      ]
     }
   ]
 }

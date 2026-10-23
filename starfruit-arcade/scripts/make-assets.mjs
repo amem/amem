@@ -37,13 +37,17 @@ const CAPTURES = [
   { key: 'catch-rush', page: 'games/promo-arcade/catch-rush/index.html', wait: 8 },
   { key: 'memory-match', page: 'games/promo-arcade/memory-match/index.html', wait: 8 },
   { key: 'spin-win', page: 'games/promo-arcade/spin-win/index.html', wait: 5 },
+  { key: 'daily-doors', page: 'games/daily-doors/index.html', wait: 3.6 },
+  { key: 'scratch-win', page: 'games/daily-doors/scratch.html', wait: 2.6 },
+  { key: 'perfect-match-quiz', page: 'games/perfect-match-quiz/index.html', wait: 3 },
+  { key: 'swapsy', page: 'games/swapsy/index.html', wait: 9 },
 ];
 const VIEWS = {
   desktop: { viewport: { width: 1280, height: 720 } },
   phone: { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true },
   card: { viewport: { width: 800, height: 500 } },
 };
-const TRAILERS = ['neon-stack', 'cosmic-merge', 'brick-blitz', 'catch-rush'];
+const TRAILERS = ['neon-stack', 'cosmic-merge', 'brick-blitz', 'catch-rush', 'swapsy', 'daily-doors', 'perfect-match-quiz'];
 
 for (const dir of ['screenshots', 'fiverr', 'itch', 'gumroad', 'upwork', 'site', 'brand', 'video']) {
   fs.mkdirSync(path.join(OUT, dir), { recursive: true });
@@ -190,9 +194,9 @@ async function composeAll() {
   for (const p of catalog.products) {
     jobs.push(() => compose(`itch/${p.id}-cover.png`, 630, 500, `
       <img class="abs" src="${shot(`${p.id}-card-1`)}" style="inset:0;width:630px;height:500px;object-fit:cover">
-      <div class="abs" style="inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.82) 100%)"></div>
+      <div class="abs" style="inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 22%,rgba(0,0,0,.72) 58%,rgba(0,0,0,.9) 100%)"></div>
       <div class="abs" style="left:32px;right:32px;bottom:34px">
-        <h1 class="display" style="font-size:58px;color:#fff;text-shadow:0 4px 24px rgba(0,0,0,.5)">${esc(p.title)}</h1>
+        <h1 class="display" style="font-size:${p.title.length > 14 ? 50 : 58}px;color:#fff;text-shadow:0 4px 24px rgba(0,0,0,.5)">${esc(p.title)}</h1>
         <p style="margin-top:12px;font-size:24px;line-height:1.25;font-weight:700;color:${p.accent === '#ff7a18' ? '#ffd29a' : '#fff'}">${esc(p.tagline)}</p>
       </div>
     `));
@@ -223,19 +227,20 @@ async function composeAll() {
       <p class="abs mono" style="left:42px;top:${p.title.length > 11 ? 500 : 480}px;font-size:18px;color:#fff">SOURCE CODE</p>
     `));
   }
-  const bundlePhones = ['neon-stack-phone-1', 'cosmic-merge-phone-1', 'brick-blitz-phone-1', 'spin-win-phone-1'];
+  const bundlePhones = ['swapsy-phone-1', 'cosmic-merge-phone-1', 'daily-doors-phone-1', 'spin-win-phone-1'];
+  const nProducts = catalog.products.length;
   jobs.push(() => compose('gumroad/bundle-cover.png', 1280, 720, `
     <div class="abs" style="inset:0;background:var(--ink)"></div>
     <div class="abs brandline" style="left:64px;top:56px;color:var(--star)">${MARK}Starfruit Arcade</div>
     <h1 class="abs display" style="left:64px;top:150px;width:520px;font-size:66px;color:#fff">${esc(catalog.bundle.title.replace('Starfruit Arcade ', ''))}</h1>
-    <p class="abs" style="left:64px;top:410px;width:470px;font-size:28px;color:#cfd8cc">${catalog.products.map((p) => esc(p.title)).join(' · ')}</p>
-    <p class="abs mono" style="left:64px;top:560px;font-size:22px;color:var(--star)">4 GAMES · FULL SOURCE CODE · 1 PRICE</p>
+    <p class="abs" style="left:64px;top:380px;width:500px;font-size:23px;line-height:1.4;color:#cfd8cc">${catalog.products.map((p) => esc(p.title)).join(' · ')}</p>
+    <p class="abs mono" style="left:64px;top:600px;font-size:22px;color:var(--star)">${nProducts} PRODUCTS · FULL SOURCE CODE · 1 PRICE</p>
     ${bundlePhones.map((s, i) => phone(shot(s), `left:${600 + i * 160}px;top:${110 + (i % 2) * 70}px;width:190px;transform:rotate(${[-5, 3, -2, 5][i]}deg)`)).join('')}
   `));
   jobs.push(() => compose('gumroad/bundle-thumb.png', 600, 600, `
     <div class="abs" style="inset:0;background:var(--star)"></div>
     ${bundlePhones.map((s, i) => phone(shot(s), `left:${30 + i * 135}px;top:${60 + (i % 2) * 40}px;width:150px;transform:rotate(${[-5, 3, -2, 5][i]}deg)`)).join('')}
-    <h1 class="abs display" style="left:36px;top:430px;font-size:46px">4-game bundle</h1>
+    <h1 class="abs display" style="left:36px;top:430px;font-size:46px">${nProducts}-product bundle</h1>
     <p class="abs mono" style="left:38px;top:505px;font-size:20px">SOURCE CODE · HTML5</p>
   `));
 
@@ -247,7 +252,7 @@ async function composeAll() {
       <div class="abs" style="left:0;right:0;bottom:0;height:360px;background:linear-gradient(135deg,${p.accent},${p.accent2});opacity:.9"></div>
       ${laptop(d.wide, 'left:110px;top:120px;width:1000px')}
       ${phone(d.tall, 'left:1150px;top:250px;width:330px;transform:rotate(3deg)')}
-      <h1 class="abs display" style="left:110px;top:900px;font-size:92px;color:#fff">${esc(p.title)}</h1>
+      <h1 class="abs display" style="left:110px;top:${p.title.length > 14 ? 912 : 900}px;font-size:${p.title.length > 14 ? 74 : 92}px;color:#fff">${esc(p.title)}</h1>
       <p class="abs mono" style="left:114px;top:1030px;font-size:30px;color:#fff">${esc(p.genre.toUpperCase())} · HTML5 · JAVASCRIPT · CANVAS</p>
     `));
   }
@@ -359,6 +364,37 @@ async function composeAll() {
     <div class="abs" style="left:64px;right:64px;top:180px;color:#fff">${steps('#e8503f').replace(/Send your logo, colours and goal/, 'Send your logo, colours and prizes').replace(/Play it on your phone within 48 hours/, 'Spin it on your phone within 24 hours').replace(/Files, source code and hosting help/, 'Link, QR code and embed code')}</div>
     ${phone(shot('spin-win-phone-1'), 'left:520px;top:415px;width:150px;transform:rotate(-4deg)')}
     ${phone(shot('catch-rush-phone-1'), 'left:690px;top:425px;width:150px;transform:rotate(4deg)')}
+  `));
+
+  // Gig 5 — seasonal campaign (advent calendar, scratch card)
+  jobs.push(() => compose('fiverr/gig5-campaign-1.png', W, H, `
+    <div class="abs" style="inset:0;background:#12372a"></div>
+    <h1 class="abs display" style="left:64px;top:84px;width:640px;font-size:78px;color:#fff">An advent calendar in your brand</h1>
+    <p class="abs" style="left:66px;top:410px;width:560px;font-size:30px;font-weight:700;line-height:1.3;color:#f6c445">A new deal behind every door. Customers come back every day.</p>
+    <div class="abs chips" style="left:66px;top:560px;width:600px;color:#fff"><span class="chip">Christmas</span><span class="chip">Ramadan</span><span class="chip">Black Friday</span></div>
+    ${phone(shot('daily-doors-phone-1'), 'left:760px;top:70px;width:250px;transform:rotate(-5deg)')}
+    ${phone(shot('scratch-win-phone-1'), 'left:1010px;top:150px;width:220px;transform:rotate(6deg)')}
+  `));
+  jobs.push(() => compose('fiverr/gig5-campaign-2.png', W, H, `
+    <div class="abs" style="inset:0;background:var(--paper)"></div>
+    <h1 class="abs display" style="left:64px;top:70px;font-size:58px">What you get</h1>
+    <div class="abs" style="left:64px;top:190px;width:600px">${checklist(['Your logo, colours, dates and deals', 'Scratch-to-reveal doors with sound', 'Coupon codes with a Copy button', 'Optional email / phone capture', 'Bonus Scratch & Win card', 'Link, QR code or website embed'], '#d7263d')}</div>
+    ${laptop(shot('daily-doors-desktop-1'), 'left:690px;top:230px;width:540px')}
+  `));
+  // Gig 6 — product-finder quiz
+  jobs.push(() => compose('fiverr/gig6-quiz-1.png', W, H, `
+    <div class="abs" style="inset:0;background:#2b1a5c"></div>
+    <h1 class="abs display" style="left:64px;top:84px;width:640px;font-size:76px;color:#fff">A quiz that sells your products</h1>
+    <p class="abs" style="left:66px;top:410px;width:560px;font-size:30px;font-weight:700;line-height:1.3;color:#ffc94d">"Which one is right for me?" answered in 60 seconds.</p>
+    <div class="abs chips" style="left:66px;top:560px;width:600px;color:#fff"><span class="chip">Product finder</span><span class="chip">Trivia</span><span class="chip">Leads</span></div>
+    ${phone(shot('perfect-match-quiz-phone-1'), 'left:760px;top:70px;width:250px;transform:rotate(-5deg)')}
+    ${phone(shot('perfect-match-quiz-phone-2'), 'left:1010px;top:150px;width:220px;transform:rotate(6deg)')}
+  `));
+  jobs.push(() => compose('fiverr/gig6-quiz-2.png', W, H, `
+    <div class="abs" style="inset:0;background:var(--paper)"></div>
+    <h1 class="abs display" style="left:64px;top:70px;font-size:58px">What you get</h1>
+    <div class="abs" style="left:64px;top:190px;width:600px">${checklist(['Your questions, products and brand', 'Personality or trivia quiz', 'Result with product and coupon', 'Shareable result image for stories', 'Leads with the quiz result', 'Link, QR code or website embed'], '#7c4dff')}</div>
+    ${laptop(shot('perfect-match-quiz-desktop-1'), 'left:690px;top:230px;width:540px')}
   `));
 
   // ---- Studio logo (avatar for itch.io / Gumroad)

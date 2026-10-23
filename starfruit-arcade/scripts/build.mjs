@@ -10,7 +10,8 @@
 //              <id>-v<ver>-extended.zip          sell: Extended license (unlimited end products)
 //              starfruit-arcade-bundle-v<ver>-*.zip
 //   site/      the portfolio + storefront website with every game playable under play/<id>/
-//   laptop/    one zip per project folder (01-neon-stack.zip …) + the complete workspace
+//   laptop/    one zip per project folder (01-neon-stack.zip …), site, business kit,
+//              marketing assets, release files + the complete workspace
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -39,8 +40,7 @@ function validate(product) {
   const warnings = [];
   if (!fs.existsSync(dir)) return { errors: [`games/${product.id}/ is missing`], warnings };
 
-  const required = ['index.html', 'README.md', 'CHANGELOG.md',
-    product.id === 'promo-arcade' ? 'brand.config.js' : 'config.js'];
+  const required = ['README.md', 'CHANGELOG.md', product.config || 'config.js', ...(product.pages || ['index.html'])];
   for (const f of required) if (!fs.existsSync(path.join(dir, f))) errors.push(`missing ${f}`);
 
   const files = collect(dir, '', skipHidden);
@@ -146,12 +146,16 @@ fs.writeFileSync(siteIndex, renderSite(fs.readFileSync(siteIndex, 'utf8'), catal
 // Laptop kit: one zip per project folder, ready to unzip into Documents/Starfruit Arcade/.
 const folderZip = (name, dir, filter = skipHidden) => zip(`laptop/${name}.zip`, collect(dir, name, filter));
 for (const product of catalog.products) folderZip(`${product.number}-${product.id}`, path.join(ROOT, 'games', product.id));
-folderZip('05-portfolio-website', SITE);
-folderZip('06-business-kit', path.join(ROOT, 'business'));
-if (fs.existsSync(path.join(ROOT, 'marketing', 'out'))) folderZip('07-marketing-assets', path.join(ROOT, 'marketing', 'out'));
-zip('laptop/08-release-files.zip', [
-  ...collect(path.join(DIST, 'itch'), '08-release-files/itch-io-uploads'),
-  ...collect(path.join(DIST, 'source'), '08-release-files/source-code-for-sale'),
+// The other folders are numbered after the products: 08-portfolio-website, 09-business-kit…
+let seq = catalog.products.length;
+const nextName = (name) => `${String(++seq).padStart(2, '0')}-${name}`;
+folderZip(nextName('portfolio-website'), SITE);
+folderZip(nextName('business-kit'), path.join(ROOT, 'business'));
+if (fs.existsSync(path.join(ROOT, 'marketing', 'out'))) folderZip(nextName('marketing-assets'), path.join(ROOT, 'marketing', 'out'));
+const releaseName = nextName('release-files');
+zip(`laptop/${releaseName}.zip`, [
+  ...collect(path.join(DIST, 'itch'), `${releaseName}/itch-io-uploads`),
+  ...collect(path.join(DIST, 'source'), `${releaseName}/source-code-for-sale`),
 ]);
 const EXCLUDE_TOP = new Set(['node_modules', 'dist', '.qa']);
 folderZip('starfruit-arcade-complete-workspace', ROOT, (rel) => {
